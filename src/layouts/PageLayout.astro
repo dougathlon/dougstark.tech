@@ -1,0 +1,47 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+interface Props {
+  title: string;
+  eyebrow?: string;
+  summary?: string;
+  showHead?: boolean;
+  register?: { label: string; value: string }[];
+  note?: string;
+}
+
+const { title, eyebrow, summary, showHead = true, register = [], note } = Astro.props;
+---
+
+<BaseLayout title={title} description={summary}>
+  {
+    showHead && (
+      <section class="page-head">
+        <div class={`shell ${register.length > 0 ? "page-head-grid" : "narrow"}`}>
+          <div class="page-head-copy">
+            {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+            <h1>{title}</h1>
+            {summary && <p class="lede">{summary}</p>}
+            {note && <p class="page-note">{note}</p>}
+          </div>
+          {
+            register.length > 0 && (
+              <aside class="page-index" aria-label={`${title} register`}>
+                <div class="section-label">Surface Index</div>
+                <ul class="page-index-list">
+                  {register.map((item) => (
+                    <li>
+                      <span>{item.label}</span>
+                      <strong>{item.value}</strong>
+                    </li>
+                  ))}
+                </ul>
+              </aside>
+            )
+          }
+        </div>
+      </section>
+    )
+  }
+  <slot />
+</BaseLayout>

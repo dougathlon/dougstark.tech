@@ -1,0 +1,30 @@
+---
+import Card from "./Card.astro";
+import StatusBadge from "./StatusBadge.astro";
+
+interface Props {
+  title: string;
+  kicker: string;
+  status?: string;
+  visibility?: "public" | "draft" | "private";
+  pattern?: string;
+  backHref?: string;
+  backLabel?: string;
+}
+
+const { title, kicker, status, visibility, pattern = "lattice", backHref, backLabel = "Return" } = Astro.props;
+---
+
+<section class="section detail-section">
+  <div class="shell">
+    <Card pattern={pattern} class="expanded-card">
+      <div class="card-kicker">{kicker}</div>
+      <h1>{title}</h1>
+      <StatusBadge status={status} visibility={visibility} />
+      <div class="expanded-card-body">
+        <slot />
+      </div>
+      {backHref && <a class="return-link" href={backHref}>{backLabel}</a>}
+    </Card>
+  </div>
+</section>

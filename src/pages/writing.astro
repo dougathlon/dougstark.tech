@@ -1,0 +1,27 @@
+---
+import { getCollection } from "astro:content";
+import PageLayout from "../layouts/PageLayout.astro";
+import OutputCard from "../components/OutputCard.astro";
+import { slugFor, sortByDateDesc } from "../lib/content";
+
+const outputs = sortByDateDesc(
+  (await getCollection("outputs")).filter(
+    (entry) => entry.data.visibility === "public" && entry.data.status === "closed"
+  )
+);
+---
+
+<PageLayout title="Writing" showHead={false}>
+  <section class="section stage-section">
+    <div class="shell">
+      <h1 class="visually-hidden">Writing</h1>
+      <div class="grid">
+        {
+          outputs.map((entry, index) => (
+            <OutputCard entry={entry} patternSeed={`${slugFor(entry)}-${index}`} />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</PageLayout>

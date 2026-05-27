@@ -1,0 +1,23 @@
+---
+interface Props {
+  status?: string;
+  visibility?: string;
+  extraLabels?: Array<string | number>;
+}
+
+const { status, visibility, extraLabels = [] } = Astro.props;
+const labels = [status, visibility === "draft" ? "draft" : undefined, ...extraLabels].filter(Boolean);
+---
+
+{
+  labels.length > 0 && (
+    <span class="badge-row" aria-label="Status">
+      {
+        labels.map((label) => {
+          const labelClass = String(label).toLowerCase().replace(/[^a-z0-9-]+/g, "-");
+          return <span class={`status-badge status-${labelClass}`}>{label}</span>;
+        })
+      }
+    </span>
+  )
+}

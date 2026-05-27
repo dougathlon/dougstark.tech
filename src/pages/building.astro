@@ -1,0 +1,29 @@
+---
+import { getCollection } from "astro:content";
+import PageLayout from "../layouts/PageLayout.astro";
+import ArtifactCard from "../components/ArtifactCard.astro";
+import { slugFor, sortByActiveThenDateDesc } from "../lib/content";
+
+const designArtifacts = sortByActiveThenDateDesc(
+  (await getCollection("artifacts")).filter(
+    (entry) =>
+      entry.data.visibility === "public" &&
+      entry.data.kind !== "design container"
+  )
+);
+---
+
+<PageLayout title="Building" showHead={false}>
+  <section class="section stage-section">
+    <div class="shell">
+      <h1 class="visually-hidden">Building</h1>
+      <div class="grid">
+        {
+          designArtifacts.map((entry, index) => (
+            <ArtifactCard entry={entry} patternSeed={`${slugFor(entry)}-${index}`} />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</PageLayout>

@@ -1,0 +1,4 @@
+/research /writing 301
+/research/* /writing 301
+/design /building 301
+/design/* /building 301

@@ -1,0 +1,136 @@
+{
+  "records": {
+    "project-synthetic-humanities-lab": {
+      "collection": "constellations",
+      "slug": "synthetic-humanities",
+      "mode": "attach_to_existing",
+      "note": "AHL public-surface project record maps onto the existing Synthetic Humanities constellation rather than creating a duplicate public page."
+    },
+    "artifact-agentic-humanities-lab-v1": {
+      "collection": "artifacts",
+      "slug": "agentic-humanities-lab-v1",
+      "mode": "attach_to_existing",
+      "note": "AHL V1 maps onto the public design/artifact page derived from the local project docs."
+    },
+    "output-ai-aesthetics-stiegler": {
+      "collection": "outputs",
+      "slug": "ai-aesthetics-stiegler",
+      "mode": "attach_to_existing"
+    },
+    "output-brechts-experimental-games": {
+      "collection": "outputs",
+      "slug": "brechts-experimental-games",
+      "mode": "attach_to_existing"
+    },
+    "output-protective-play": {
+      "collection": "outputs",
+      "slug": "protective-play",
+      "mode": "attach_to_existing"
+    },
+    "output-speculative-adaptation-4d-toys": {
+      "collection": "outputs",
+      "slug": "speculative-adaptation-4d-toys",
+      "mode": "attach_to_existing"
+    },
+    "output-the-art-of-behavior": {
+      "collection": "outputs",
+      "slug": "the-art-of-behavior",
+      "mode": "attach_to_existing"
+    },
+    "output-a-room-to-play": {
+      "collection": "outputs",
+      "slug": "a-room-to-play",
+      "mode": "attach_to_existing"
+    },
+    "output-better-problems": {
+      "collection": "outputs",
+      "slug": "better-problems",
+      "mode": "attach_to_existing"
+    },
+    "output-exercises-in-humility": {
+      "collection": "outputs",
+      "slug": "exercises-in-humility",
+      "mode": "attach_to_existing"
+    },
+    "output-games-as-epistemic-mediators": {
+      "collection": "outputs",
+      "slug": "games-as-epistemic-mediators",
+      "mode": "attach_to_existing"
+    },
+    "output-graceful-gaming": {
+      "collection": "outputs",
+      "slug": "graceful-gaming",
+      "mode": "attach_to_existing"
+    },
+    "output-instruction-manuals-for-life": {
+      "collection": "outputs",
+      "slug": "instruction-manuals-for-life",
+      "mode": "attach_to_existing"
+    },
+    "output-lost-futures-bojack-diane": {
+      "collection": "outputs",
+      "slug": "lost-futures-bojack-diane",
+      "mode": "attach_to_existing"
+    },
+    "output-ludic-literature-ready-player-one": {
+      "collection": "outputs",
+      "slug": "ludic-literature-ready-player-one",
+      "mode": "attach_to_existing"
+    },
+    "output-octavia-butler-parable": {
+      "collection": "outputs",
+      "slug": "octavia-butler-parable",
+      "mode": "attach_to_existing"
+    },
+    "output-on-simema": {
+      "collection": "outputs",
+      "slug": "on-simema",
+      "mode": "attach_to_existing"
+    },
+    "output-playing-at-slsa": {
+      "collection": "outputs",
+      "slug": "playing-at-slsa",
+      "mode": "attach_to_existing"
+    },
+    "output-post-gamer-turn": {
+      "collection": "outputs",
+      "slug": "post-gamer-turn",
+      "mode": "attach_to_existing"
+    },
+    "output-qwop-embodied-literacy": {
+      "collection": "outputs",
+      "slug": "qwop-embodied-literacy",
+      "mode": "attach_to_existing"
+    },
+    "output-reimagining-play-lewis-carroll-croquet": {
+      "collection": "outputs",
+      "slug": "reimagining-play-lewis-carroll-croquet",
+      "mode": "attach_to_existing"
+    },
+    "output-simema-aesthetics-autoplay": {
+      "collection": "outputs",
+      "slug": "simema-aesthetics-autoplay",
+      "mode": "attach_to_existing"
+    },
+    "output-the-magic-circulation": {
+      "collection": "outputs",
+      "slug": "the-magic-circulation",
+      "mode": "attach_to_existing"
+    },
+    "output-training-for-the-military": {
+      "collection": "outputs",
+      "slug": "training-for-the-military",
+      "mode": "attach_to_existing"
+    },
+    "output-video-game-novels-entry": {
+      "collection": "outputs",
+      "slug": "video-game-novels-entry",
+      "mode": "attach_to_existing"
+    },
+    "output-wynters-theory-of-play": {
+      "collection": "outputs",
+      "slug": "wynters-theory-of-play",
+      "mode": "attach_to_existing"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+---
+import { getCollection } from "astro:content";
+import PageLayout from "../layouts/PageLayout.astro";
+import CourseCard from "../components/CourseCard.astro";
+import { courseGroups } from "../lib/course-groups";
+
+const groups = courseGroups(await getCollection("courses"));
+---
+
+<PageLayout title="Teaching" showHead={false}>
+  <section class="section stage-section">
+    <div class="shell">
+      <h1 class="visually-hidden">Teaching</h1>
+      <div class="grid">
+        {
+          groups.map((group) => <CourseCard group={group} />)
+        }
+      </div>
+    </div>
+  </section>
+</PageLayout>

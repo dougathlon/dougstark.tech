@@ -1,0 +1,61 @@
+---
+import StatusBadge from "./StatusBadge.astro";
+import type { RouteLink } from "../lib/router";
+import { routeCollectionLabel } from "../lib/router";
+
+interface Props {
+  links: RouteLink[];
+  nodeId: string;
+}
+
+const { links, nodeId } = Astro.props;
+const outgoingCount = links.filter((link) => link.direction === "outgoing").length;
+const incomingCount = links.length - outgoingCount;
+---
+
+<div class="route-register">
+  <div class="route-register-head">
+    <div class="section-label">Route Register</div>
+    <code>{nodeId}</code>
+  </div>
+  <ul class="route-register-meta" aria-label="Route register summary">
+    <li>
+      <span>Total links</span>
+      <strong>{links.length}</strong>
+    </li>
+    <li>
+      <span>Outgoing</span>
+      <strong>{outgoingCount}</strong>
+    </li>
+    <li>
+      <span>Incoming</span>
+      <strong>{incomingCount}</strong>
+    </li>
+  </ul>
+  {
+    links.length > 0 ? (
+      <ul class="route-list">
+        {links.map((link) => (
+          <li>
+            <div class="route-list-head">
+              <span>{routeCollectionLabel(link.collection)}</span>
+              <span class={`route-direction route-direction-${link.direction}`}>
+                {link.direction === "outgoing" ? "Out" : "In"}
+              </span>
+            </div>
+            <a href={link.href}>
+              <strong>{link.title}</strong>
+            </a>
+            <small>
+              <span>{link.relation}</span>
+              <code>{link.href}</code>
+            </small>
+            {link.status && <StatusBadge status={link.status} />}
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p class="route-empty">No public routes registered yet.</p>
+    )
+  }
+</div>

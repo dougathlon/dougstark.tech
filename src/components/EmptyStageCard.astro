@@ -1,0 +1,15 @@
+---
+import Card from "./Card.astro";
+
+interface Props {
+  label: string;
+}
+
+const { label } = Astro.props;
+---
+
+<Card pattern="register phase-0 slot-10" class="empty-stage-card">
+  <div class="card-kicker">{label}</div>
+  <h2>No Public Card</h2>
+  <p>This register has no public item yet.</p>
+</Card>

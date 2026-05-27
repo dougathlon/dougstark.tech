@@ -1,0 +1,20 @@
+---
+import Card from "./Card.astro";
+import type { CourseGroup } from "../lib/course-groups";
+import { coursePatternForSlug } from "../lib/visual";
+
+interface Props {
+  group: CourseGroup;
+}
+
+const { group } = Astro.props;
+const heading = group.courseCode ? `${group.courseCode}: ${group.title}` : group.title;
+---
+
+<Card href={group.publicUrl} pattern={coursePatternForSlug(group.slug)} class="course-card">
+  <h2>{heading}</h2>
+  <span class="badge-row" aria-label="Course terms">
+    {group.terms.map((term) => <span class="term-badge">{term}</span>)}
+  </span>
+  {group.representative.data.summary && <p>{group.representative.data.summary}</p>}
+</Card>

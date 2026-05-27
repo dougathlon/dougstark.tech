@@ -1,0 +1,85 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Card from "../components/Card.astro";
+---
+
+<BaseLayout
+  title="Home"
+  description="Doug Stark studies games, media systems, speculative forms, and technical infrastructures."
+>
+  <section class="home-machine">
+    <div class="shell home-board">
+      <h1 class="visually-hidden">Home</h1>
+
+      <Card pattern="wire-personnel phase-1 slot-0" class="home-profile-card business-card home-profile-main">
+        <h2>Doug Stark</h2>
+        <p class="business-role">Assistant Professor of English</p>
+        <p>University of Texas at Arlington</p>
+        <p class="business-field">GAMES / MEDIA / AI / THEORY / CONTEXT ENGINEERING</p>
+        <ul class="home-link-list">
+          <li><a href="/files/cv/stark-cv-april-2026.pdf">CV</a></li>
+          <li>
+            <a
+              href="https://www.uta.edu/academics/schools-colleges/liberal-arts/faculty-staff/new-faculty/doug-stark"
+              aria-label="UTA departmental page"
+            >
+              UTA
+            </a>
+          </li>
+          <li><span>X</span></li>
+          <li>
+            <a href="https://www.instagram.com/dougathlon/" aria-label="Instagram" class="icon-link">
+              <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <rect x="4.5" y="4.5" width="15" height="15" rx="4" />
+                <circle cx="12" cy="12" r="3.2" />
+                <circle cx="16.7" cy="7.3" r="0.8" />
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </Card>
+
+      <Card pattern="wire-calendar-empty phase-2 slot-1" class="home-events-card">
+        <h2>Upcoming Events</h2>
+        <div class="event-listing">
+          <span class="term-row event-date">
+            <span class="term-badge">June 24, 2026</span>
+            <span class="term-badge">11:00 AM</span>
+          </span>
+          <h3>The Synthetic Humanities?</h3>
+          <p>The Digital Conference 2026, King's College London. Bush House Arcade.</p>
+          <p>
+            The talk asks whether generative AI requires a new term for humanities method after digital humanities, and
+            whether that rebranding also belongs to the institutional theater of making humanities work sound fundable,
+            flashy, and new.
+          </p>
+        </div>
+      </Card>
+
+      <Card pattern="wire-document phase-4 slot-7" class="home-bio-card">
+        <h2>Biography</h2>
+        <p>
+          Doug Stark is Assistant Professor of English at the University of Texas at Arlington. His research and
+          teaching move between film and media studies, game and play studies, science and technology studies, and
+          critical theory.
+        </p>
+        <p>
+          His work asks how play has helped people adapt to social and technical change from the Industrial Revolution
+          to the information age. Rather than treating games as a separate sphere of entertainment, he studies play as a
+          practical media form: a way of training bodies, organizing conduct, modeling problems, and making technical
+          systems easier to inhabit.
+        </p>
+        <p>
+          His current book project, Untimely Play: History, Habit, Games, retrieves neglected game critics and game-like
+          practices to rethink the relationship between play and power. Its archive moves from colonial cricket,
+          military training, workplace roleplay, and game theory to video games, gamification, and contemporary AI.
+        </p>
+        <p>
+          Stark also builds and teaches with games. His courses introduce students to close play, game analysis,
+          critical theory, digital media, and esports, while his design work uses prototypes and research
+          infrastructure to make technical mediation visible as something people can test, revise, and argue with.
+        </p>
+      </Card>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,40 @@
+---
+interface Props {
+  href?: string;
+  class?: string;
+  pattern?: string;
+}
+
+const { href, class: className = "", pattern = "lattice" } = Astro.props;
+const cardClass = `card ${href ? "is-clickable" : "is-static"} pattern-${pattern} ${className}`;
+---
+
+{
+  href ? (
+    <a class={cardClass} href={href}>
+      <span class="card-plot" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+      <div class="card-content">
+        <slot />
+      </div>
+    </a>
+  ) : (
+    <article class={cardClass}>
+      <span class="card-plot" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+      <div class="card-content">
+        <slot />
+      </div>
+    </article>
+  )
+}

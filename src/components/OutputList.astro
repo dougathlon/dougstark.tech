@@ -1,0 +1,22 @@
+---
+import StatusBadge from "./StatusBadge.astro";
+
+const { entries = [], heading = "Related outputs" } = Astro.props;
+---
+
+{
+  entries.length > 0 && (
+    <section class="section">
+      <div class="section-label">{heading}</div>
+      <ul class="record-list">
+        {entries.map((entry: any) => (
+          <li>
+            <span>{entry.data.title}</span>
+            <StatusBadge status={entry.data.status} visibility={entry.data.visibility} />
+            {entry.data.summary && <p>{entry.data.summary}</p>}
+          </li>
+        ))}
+      </ul>
+    </section>
+  )
+}

@@ -1,0 +1,3518 @@
+:root {
+  color-scheme: light;
+  --paper: #eee3ce;
+  --paper-dim: #d5c9b3;
+  --paper-warm: #e5d5b8;
+  --ink: #17150f;
+  --charcoal: #2a271f;
+  --graphite: #5b5549;
+  --soft: #c4b99f;
+  --line: #aa9e85;
+  --line-dark: #242018;
+  --mark: #17150f;
+  --mark-dark: #17150f;
+  --blue-gray: #667176;
+  --field: #f7efdf;
+  --focus: #164f7a;
+  --max: 1180px;
+  --narrow: 820px;
+  --manual-font: "Courier", "Courier New", "Nimbus Mono PS", "Liberation Mono", ui-monospace, monospace;
+  --body-font: var(--manual-font);
+  --display-font: var(--manual-font);
+  --mono-font: var(--manual-font);
+  --copy-shadow: 0.015em 0 0 rgba(23, 21, 15, 0.18), -0.012em 0.01em 0 rgba(111, 86, 46, 0.09);
+  font-family: var(--body-font);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  font-size: 16px;
+  line-height: 1.48;
+  letter-spacing: 0;
+  font-family: var(--body-font);
+  text-shadow: var(--copy-shadow);
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: none;
+  background:
+    linear-gradient(180deg, rgba(255, 250, 237, 0.42), rgba(213, 201, 179, 0.18)),
+    radial-gradient(circle at 18% 24%, rgba(37, 31, 19, 0.055) 0 0.55px, transparent 0.9px),
+    radial-gradient(circle at 68% 16%, rgba(37, 31, 19, 0.045) 0 0.5px, transparent 0.85px),
+    radial-gradient(circle at 82% 78%, rgba(37, 31, 19, 0.04) 0 0.45px, transparent 0.82px),
+    linear-gradient(90deg, rgba(17, 17, 15, 0.035) 1px, transparent 1px),
+    linear-gradient(rgba(17, 17, 15, 0.026) 1px, transparent 1px),
+    repeating-radial-gradient(ellipse at 78% 16%, transparent 0 1.35rem, rgba(17, 17, 15, 0.024) 1.38rem 1.43rem, transparent 1.46rem 2.2rem),
+    repeating-radial-gradient(circle at 18% 72%, transparent 0 0.9rem, rgba(17, 17, 15, 0.019) 0.94rem 0.99rem, transparent 1.02rem 1.7rem),
+    linear-gradient(132deg, transparent 0 46%, rgba(17, 17, 15, 0.024) 46.15% 46.28%, transparent 46.45%),
+    linear-gradient(38deg, transparent 0 58%, rgba(17, 17, 15, 0.018) 58.15% 58.32%, transparent 58.5%),
+    var(--paper);
+  background-size: auto, 3.7rem 2.9rem, 4.6rem 3.5rem, 5.4rem 4.4rem, 42px 42px, 42px 42px, 18rem 13rem, 14rem 14rem, 17rem 17rem, 19rem 19rem, auto;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    repeating-conic-gradient(from 18deg at 76% 28%, transparent 0 18deg, rgba(17, 17, 15, 0.018) 18deg 19.2deg, transparent 19.2deg 34deg),
+    repeating-radial-gradient(ellipse at 72% 31%, transparent 0 2.15rem, rgba(17, 17, 15, 0.02) 2.18rem 2.24rem, transparent 2.27rem 3.4rem),
+    linear-gradient(27deg, transparent 0 49%, rgba(17, 17, 15, 0.018) 49.1% 49.28%, transparent 49.45%),
+    repeating-linear-gradient(0deg, transparent 0 5px, rgba(17, 17, 15, 0.018) 5px 6px),
+    linear-gradient(90deg, rgba(255, 253, 244, 0.5), transparent 34rem);
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.42;
+  background:
+    radial-gradient(circle at 14% 22%, rgba(17, 17, 15, 0.08) 0 0.7px, transparent 1.15px),
+    radial-gradient(circle at 66% 18%, rgba(17, 17, 15, 0.06) 0 0.62px, transparent 1.05px),
+    radial-gradient(circle at 82% 76%, rgba(17, 17, 15, 0.055) 0 0.56px, transparent 1px),
+    radial-gradient(circle at 31% 84%, rgba(17, 17, 15, 0.05) 0 0.58px, transparent 1.1px),
+    repeating-linear-gradient(0deg, transparent 0 1.85rem, rgba(65, 55, 37, 0.035) 1.85rem calc(1.85rem + 1px)),
+    linear-gradient(90deg, rgba(104, 90, 67, 0.09), transparent 18%, transparent 82%, rgba(104, 90, 67, 0.08));
+  background-size: 3.4rem 2.6rem, 4.1rem 3.2rem, 2.7rem 3.8rem, 5.2rem 4.8rem, auto, auto;
+}
+
+a {
+  color: inherit;
+  text-decoration-color: color-mix(in srgb, currentColor 42%, transparent);
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  text-decoration-color: currentColor;
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  line-height: 1.03;
+  font-weight: 700;
+  letter-spacing: 0;
+  font-family: var(--display-font);
+  text-transform: uppercase;
+}
+
+h1 {
+  max-width: 10ch;
+  font-size: clamp(2.6rem, 7.2vw, 5.9rem);
+}
+
+h2 {
+  font-size: clamp(1.18rem, 2.2vw, 1.78rem);
+}
+
+h3 {
+  font-size: 1rem;
+}
+
+p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+code {
+  padding: 0.1rem 0.25rem;
+  background: rgba(17, 17, 15, 0.07);
+  color: var(--mark-dark);
+  font-family: var(--mono-font);
+  font-size: 0.92em;
+}
+
+.shell {
+  width: min(100% - 2rem, var(--max));
+  margin-inline: auto;
+}
+
+.narrow {
+  width: min(100% - 2rem, var(--narrow));
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  z-index: 10;
+  transform: translateY(-200%);
+  background: var(--ink);
+  color: var(--field);
+  padding: 0.55rem 0.8rem;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.site-header {
+  position: relative;
+  top: 0;
+  z-index: 3;
+  border-bottom: 0;
+  background: transparent;
+  color: var(--ink);
+  box-shadow: none;
+}
+
+.header-shell {
+  display: grid;
+  grid-template-columns: minmax(10rem, 0.62fr) minmax(0, 1.65fr);
+  align-items: stretch;
+  gap: 0.38rem;
+  padding-block: 0.6rem;
+}
+
+.site-mark {
+  position: relative;
+  display: grid;
+  align-content: center;
+  min-height: 3rem;
+  padding: 0.42rem 0.65rem 0.42rem 1.45rem;
+  border: 1px solid var(--line-dark);
+  background:
+    radial-gradient(circle at 74% 38%, rgba(23, 21, 15, 0.08) 0 0.55px, transparent 0.9px),
+    linear-gradient(180deg, rgba(255, 252, 241, 0.52), transparent),
+    var(--field);
+  background-size: 3.1rem 2.4rem, auto, auto;
+  color: inherit;
+  text-decoration: none;
+  overflow: hidden;
+}
+
+.site-mark::before,
+.primary-nav a::before {
+  content: "";
+  position: absolute;
+  inset: 0.48rem auto 0 0;
+  width: 0.72rem;
+  border-right: 1px solid var(--line-dark);
+  background:
+    radial-gradient(circle, var(--ink) 0 0.1rem, transparent 0.11rem 100%),
+    var(--field);
+  background-size: 0.72rem 0.55rem;
+}
+
+.site-mark-name {
+  font-weight: 700;
+  font-family: var(--display-font);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.identity-line,
+.eyebrow,
+.section-label,
+.card-kicker {
+  font-family: var(--mono-font);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.primary-nav {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 0.28rem;
+}
+
+.primary-nav a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 7.5rem;
+  min-height: 3rem;
+  padding: 0.35rem 0.62rem 0.35rem 1.35rem;
+  border: 1px solid var(--line-dark);
+  background:
+    radial-gradient(circle at 64% 24%, rgba(23, 21, 15, 0.07) 0 0.48px, transparent 0.78px),
+    linear-gradient(180deg, rgba(255, 252, 241, 0.48), transparent),
+    var(--field);
+  background-size: 3.9rem 2.8rem, auto, auto;
+  color: var(--charcoal);
+  font-family: var(--mono-font);
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+}
+
+.primary-nav a:hover {
+  border-color: var(--line-dark);
+  background: var(--paper-warm);
+}
+
+.primary-nav a[aria-current="page"] {
+  border-color: var(--line-dark);
+  background: var(--ink);
+  color: var(--field);
+  text-shadow: none;
+}
+
+.primary-nav a[aria-current="page"]::before {
+  background:
+    radial-gradient(circle, var(--field) 0 0.1rem, transparent 0.11rem 100%),
+    var(--ink);
+}
+
+.hero,
+.page-head {
+  position: relative;
+  padding-block: clamp(2.3rem, 5.2vw, 4.5rem);
+  border-bottom: 1px solid var(--line-dark);
+  background:
+    linear-gradient(90deg, rgba(17, 17, 15, 0.075) 0, rgba(17, 17, 15, 0.075) clamp(2.2rem, 5vw, 4rem), transparent clamp(2.2rem, 5vw, 4rem), transparent 100%),
+    linear-gradient(180deg, rgba(255, 250, 237, 0.58), rgba(219, 207, 184, 0.26)),
+    repeating-linear-gradient(90deg, rgba(17, 17, 15, 0.035) 0 1px, transparent 1px 3.3rem),
+    repeating-linear-gradient(0deg, transparent 0 1.7rem, rgba(56, 45, 30, 0.035) 1.7rem calc(1.7rem + 1px)),
+    var(--paper);
+}
+
+.hero::before,
+.page-head::before,
+.section::before {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  left: 0;
+  width: clamp(0.32rem, 0.75vw, 0.6rem);
+  background:
+    repeating-linear-gradient(
+      0deg,
+      var(--ink) 0 0.42rem,
+      transparent 0.42rem 1.15rem,
+      var(--graphite) 1.15rem 1.55rem,
+      transparent 1.55rem 2.35rem
+    );
+}
+
+.hero-copy-block {
+  position: relative;
+}
+
+.page-head-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(16rem, 0.72fr);
+  gap: clamp(1.2rem, 4vw, 3rem);
+  align-items: end;
+}
+
+.page-head-copy {
+  max-width: 46rem;
+  padding-right: 1rem;
+}
+
+.page-head-copy .eyebrow {
+  display: inline-flex;
+  padding: 0.24rem 0.52rem;
+  border: 1px solid var(--line-dark);
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.page-head-copy h1 {
+  margin-top: 0.75rem;
+  max-width: 12ch;
+  text-wrap: balance;
+}
+
+.page-note {
+  margin-top: 0.85rem;
+  max-width: 40rem;
+  color: var(--graphite);
+  font-family: var(--mono-font);
+  font-size: 0.76rem;
+  font-weight: 700;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.page-index {
+  align-self: stretch;
+  border: 1px solid var(--line-dark);
+  padding: 0.95rem 1rem 1rem;
+  background:
+    radial-gradient(circle at 88% 26%, rgba(23, 21, 15, 0.08) 0 0.48px, transparent 0.82px),
+    linear-gradient(180deg, rgba(255, 250, 237, 0.58), transparent),
+    linear-gradient(90deg, rgba(17, 17, 15, 0.055) 0 0.8rem, transparent 0.8rem),
+    repeating-linear-gradient(0deg, rgba(17, 17, 15, 0.045) 0 1px, transparent 1px 2.6rem),
+    var(--field);
+  background-size: 3.7rem 2.8rem, auto, auto, auto, auto;
+  box-shadow: 0.28rem 0.28rem 0 rgba(17, 17, 15, 0.13);
+}
+
+.page-index-list {
+  display: grid;
+  gap: 0.72rem;
+  margin-top: 0.75rem;
+  list-style: none;
+}
+
+.page-index-list li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.14rem 0.75rem;
+  align-items: end;
+  padding-top: 0.72rem;
+  border-top: 1px solid color-mix(in srgb, var(--line-dark) 76%, transparent);
+}
+
+.page-index-list li:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.page-index-list span {
+  color: var(--graphite);
+  font-family: var(--mono-font);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.page-index-list strong {
+  color: var(--ink);
+  font-size: 1.08rem;
+  line-height: 1.15;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.identity-line,
+.eyebrow,
+.section-label,
+.card-kicker {
+  color: var(--ink);
+}
+
+.hero h1 {
+  margin-top: 0.55rem;
+  margin-bottom: 1rem;
+  color: var(--ink);
+  text-shadow: 0.025em 0.018em 0 rgba(17, 17, 15, 0.15), var(--copy-shadow);
+}
+
+.home-statement {
+  max-width: 16ch;
+  font-size: clamp(2rem, 5.4vw, 4.8rem);
+}
+
+.hero-copy,
+.lede {
+  max-width: 760px;
+  margin-top: 1.25rem;
+  color: var(--charcoal);
+  font-size: clamp(1rem, 1.7vw, 1.18rem);
+  font-weight: 400;
+}
+
+.route-section {
+  padding-top: clamp(1.4rem, 3vw, 2.6rem);
+}
+
+.home-machine {
+  position: relative;
+  padding-block: clamp(1rem, 2.8vw, 2.2rem);
+  border-bottom: 1px solid var(--line-dark);
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(247, 239, 223, 0.32), rgba(213, 201, 179, 0.14)),
+    repeating-linear-gradient(90deg, rgba(17, 17, 15, 0.034) 0 1px, transparent 1px 3.1rem),
+    repeating-linear-gradient(0deg, rgba(17, 17, 15, 0.024) 0 1px, transparent 1px 2.15rem);
+}
+
+.home-machine::before {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  left: 0;
+  width: clamp(0.32rem, 0.75vw, 0.6rem);
+  z-index: 1;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      var(--ink) 0 0.42rem,
+      transparent 0.42rem 1.15rem,
+      var(--graphite) 1.15rem 1.55rem,
+      transparent 1.55rem 2.35rem
+    );
+}
+
+.home-machine::after {
+  content: "";
+  position: absolute;
+  inset: -8rem -5rem -7rem -3rem;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.36;
+  background:
+    repeating-radial-gradient(ellipse at 23% 28%, transparent 0 1.2rem, rgba(17, 17, 15, 0.12) 1.24rem 1.3rem, transparent 1.34rem 2.2rem),
+    repeating-radial-gradient(circle at 76% 18%, transparent 0 1.75rem, rgba(17, 17, 15, 0.09) 1.79rem 1.86rem, transparent 1.9rem 2.9rem),
+    repeating-conic-gradient(from 23deg at 68% 70%, transparent 0 16deg, rgba(17, 17, 15, 0.11) 16.4deg 17.1deg, transparent 17.5deg 31deg),
+    linear-gradient(34deg, transparent 0 42%, rgba(17, 17, 15, 0.08) 42.1% 42.22%, transparent 42.36%),
+    linear-gradient(146deg, transparent 0 53%, rgba(17, 17, 15, 0.075) 53.12% 53.27%, transparent 53.42%);
+  background-size: 31rem 22rem, 26rem 26rem, 34rem 34rem, 13rem 13rem, 17rem 17rem;
+}
+
+.home-ledger {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.25fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.home-ledger-note {
+  max-width: 32rem;
+  margin-top: 0.45rem;
+  color: var(--charcoal);
+  font-size: 0.96rem;
+}
+
+.home-ledger-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.7rem;
+  list-style: none;
+}
+
+.home-ledger-grid li {
+  min-height: 100%;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--line-dark);
+  background:
+    radial-gradient(circle at 74% 28%, rgba(23, 21, 15, 0.07) 0 0.48px, transparent 0.82px),
+    var(--field);
+  background-size: 3.6rem 2.8rem, auto;
+  box-shadow: 0.28rem 0.28rem 0 rgba(17, 17, 15, 0.13);
+}
+
+.home-ledger-grid span {
+  display: block;
+  color: var(--graphite);
+  font-family: var(--mono-font);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.home-ledger-grid strong {
+  display: block;
+  margin-top: 0.45rem;
+  font-size: 1.18rem;
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+
+.home-atlas {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.7rem;
+  margin-top: 0.9rem;
+  list-style: none;
+}
+
+.home-atlas li {
+  min-width: 0;
+}
+
+.home-atlas a {
+  display: grid;
+  gap: 0.38rem;
+  min-height: 100%;
+  padding: 0.95rem 1rem 1rem;
+  border: 1px solid var(--line-dark);
+  background:
+    radial-gradient(circle at 78% 36%, rgba(23, 21, 15, 0.07) 0 0.48px, transparent 0.82px),
+    linear-gradient(180deg, rgba(255, 250, 237, 0.48), transparent),
+    linear-gradient(90deg, rgba(17, 17, 15, 0.05) 0 0.7rem, transparent 0.7rem),
+    var(--field);
+  background-size: 3.8rem 2.9rem, auto, auto, auto;
+  box-shadow: 0.28rem 0.28rem 0 rgba(17, 17, 15, 0.13);
+  text-decoration: none;
+}
+
+.home-atlas a:hover {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.72), transparent),
+    linear-gradient(90deg, rgba(17, 17, 15, 0.07) 0 0.7rem, transparent 0.7rem),
+    #fffef8;
+}
+
+.home-atlas span {
+  color: var(--graphite);
+  font-family: var(--mono-font);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.home-atlas strong {
+  font-size: clamp(1.35rem, 3vw, 1.85rem);
+  line-height: 1.06;
+}
+
+.home-atlas p {
+  color: var(--charcoal);
+  font-size: 0.86rem;
+  line-height: 1.35;
+  text-wrap: balance;
+}
+
+.home-atlas small {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.42rem;
+  align-items: center;
+  margin-top: 0.18rem;
+  color: var(--graphite);
+  font-family: var(--mono-font);
+  font-size: 0.68rem;
+  font-style: normal;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.home-atlas small code {
+  padding: 0;
+  background: transparent;
+  font-size: inherit;
+}
+
+.home-atlas small em {
+  display: inline-flex;
+  padding: 0.16rem 0.3rem;
+  border: 1px solid color-mix(in srgb, var(--line-dark) 72%, transparent);
+  font-style: normal;
+}
+
+.home-board {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.home-profile-card h2,
+.home-events-card h2,
+.home-bio-card h2 {
+  font-size: clamp(1rem, 1.7vw, 1.28rem);
+  line-height: 1.08;
+}
+
+.home-profile-card,
+.home-events-card,
+.home-bio-card {
+  min-height: clamp(16rem, 25vw, 22rem);
+}
+
+.home-bio-card p + p {
+  margin-top: 0.85rem;
+}
+
+.home-events-card h3 {
+  margin-top: 0.55rem;
+  font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+  line-height: 1.08;
+}
+
+.event-date {
+  margin-bottom: 0;
+}
+
+.home-profile-main {
+  aspect-ratio: auto;
+  min-height: 0;
+}
+
+.home-events-card {
+  align-self: start;
+  height: auto;
+  min-height: auto;
+}
+
+.home-bio-card {
+  grid-column: 1 / -1;
+  min-height: clamp(22rem, 34vw, 30rem);
+}
+
+.business-card {
+  display: grid;
+  align-content: space-between;
+}
+
+.business-card h2 {
+  font-size: clamp(1.55rem, 3.4vw, 2.7rem);
+  line-height: 1;
+}
+
+.business-card .business-role {
+  margin-top: 0.5rem;
+  color: var(--ink);
+  font-family: var(--mono-font);
+  font-size: 0.84rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.business-card .business-field {
+  margin-top: 0.85rem;
+  max-width: 34rem;
+  border-top: 1px solid var(--line-dark);
+  padding-top: 0.55rem;
+  font-family: var(--mono-font);
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1.28;
+  text-transform: uppercase;
+}
+
+.home-link-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.85rem;
+  list-style: none;
+}
+
+.home-link-list a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line-dark);
+  padding: 0.32rem 0.46rem;
+  background: var(--field);
+  color: var(--ink);
+  font-family: var(--mono-font);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.home-link-list span {
+  display: inline-flex;
+  border: 1px solid color-mix(in srgb, var(--line-dark) 72%, transparent);
+  padding: 0.32rem 0.46rem;
+  background: color-mix(in srgb, var(--field) 76%, transparent);
+  color: var(--graphite);
+  font-family: var(--mono-font);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.home-link-list a:hover,
+.home-link-list a:focus-visible {
+  background: var(--ink);
+  color: var(--field);
+  text-shadow: none;
+}
+
+.home-link-list .icon-link {
+  min-width: 1.86rem;
+  padding-inline: 0.34rem;
+}
+
+.social-icon {
+  width: 0.92rem;
+  height: 0.92rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+}
+
+.business-card.pattern-persona .card-plot {
+  width: min(42%, 9.5rem);
+  opacity: 0.24;
+}
+
+.section {
+  position: relative;
+  padding-block: clamp(2.3rem, 5vw, 4.4rem);
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(247, 239, 223, 0.3), rgba(213, 201, 179, 0.14)),
+    repeating-linear-gradient(90deg, rgba(17, 17, 15, 0.035) 0 1px, transparent 1px 3.1rem),
+    repeating-linear-gradient(0deg, rgba(17, 17, 15, 0.024) 0 1px, transparent 1px 2.15rem);
+}
+
+.section > .shell {
+  position: relative;
+  z-index: 2;
+}
+
+.stage-section {
+  padding-block: clamp(1.2rem, 3.4vw, 2.8rem);
+}
+
+.section::after {
+  content: "";
+  position: absolute;
+  inset: -8rem -5rem -7rem -3rem;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.34;
+  background:
+    repeating-radial-gradient(ellipse at 23% 28%, transparent 0 1.2rem, rgba(17, 17, 15, 0.12) 1.24rem 1.3rem, transparent 1.34rem 2.2rem),
+    repeating-radial-gradient(circle at 76% 18%, transparent 0 1.75rem, rgba(17, 17, 15, 0.09) 1.79rem 1.86rem, transparent 1.9rem 2.9rem),
+    repeating-conic-gradient(from 23deg at 68% 70%, transparent 0 16deg, rgba(17, 17, 15, 0.11) 16.4deg 17.1deg, transparent 17.5deg 31deg),
+    linear-gradient(34deg, transparent 0 42%, rgba(17, 17, 15, 0.08) 42.1% 42.22%, transparent 42.36%),
+    linear-gradient(146deg, transparent 0 53%, rgba(17, 17, 15, 0.075) 53.12% 53.27%, transparent 53.42%);
+  background-size: 31rem 22rem, 26rem 26rem, 34rem 34rem, 13rem 13rem, 17rem 17rem;
+}
+
+.section + .section {
+  border-top: 1px solid var(--line-dark);
+}
+
+.section-label {
+  display: inline-flex;
+  margin-bottom: 1rem;
+  padding: 0.18rem 0.42rem;
+  border: 1px solid var(--line-dark);
+  background: var(--field);
+  color: var(--ink);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  gap: 1rem;
+}
+
+.nested-grid {
+  align-items: stretch;
+}
+
+.grid-two {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(16rem, 0.8fr);
+  gap: clamp(1.25rem, 4vw, 3rem);
+  align-items: start;
+}
+
+.detail-section {
+  padding-top: clamp(1rem, 2.8vw, 2.2rem);
+}
+
+.expanded-card {
+  min-height: clamp(28rem, 72vh, 48rem);
+  padding: clamp(1.35rem, 3vw, 2.2rem) clamp(1.2rem, 3vw, 2.4rem) clamp(1.4rem, 3vw, 2.4rem) clamp(2.5rem, 4vw, 3.6rem);
+}
+
+.expanded-card .card-content {
+  display: grid;
+  min-height: 100%;
+  padding-top: 1rem;
+}
+
+.expanded-card h1 {
+  max-width: 18ch;
+  margin-top: 0.55rem;
+  font-size: clamp(2rem, 5.2vw, 4.8rem);
+}
+
+.expanded-card .card-plot {
+  width: min(56%, 24rem);
+  opacity: 0.17;
+}
+
+.expanded-card-body {
+  margin-top: clamp(1.3rem, 3vw, 2rem);
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(14rem, 0.36fr);
+  gap: clamp(1.2rem, 4vw, 3rem);
+  align-items: start;
+}
+
+.detail-register {
+  box-shadow: none;
+}
+
+.return-link {
+  align-self: end;
+  justify-self: start;
+  margin-top: clamp(1.4rem, 3vw, 2rem);
+  border: 1px solid var(--line-dark);
+  padding: 0.42rem 0.58rem;
+  background: var(--field);
+  font-family: var(--mono-font);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.project-intro-card {
+  grid-column: 1 / -1;
+  min-height: auto;
+}
+
+.project-intro-card h1 {
+  margin-top: 0.45rem;
+  max-width: none;
+  font-size: clamp(1.55rem, 2.7vw, 2.7rem);
+  line-height: 1.08;
+}
+
+.project-intro-card .card-plot {
+  width: min(46%, 18rem);
+  opacity: 0.14;
+}
+
+.compact-prose {
+  margin-top: 1rem;
+}
+
+.compact-prose p {
+  max-width: 58rem;
+}
+
+.compact-metadata {
+  margin-top: 1rem;
+  box-shadow: none;
+}
+
+.source-link {
+  display: inline-flex;
+  justify-self: start;
+  margin-top: 1rem;
+  border: 1px solid var(--line-dark);
+  padding: 0.34rem 0.48rem;
+  background: var(--field);
+  color: var(--ink);
+  font-family: var(--mono-font);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.source-link:hover,
+.source-link:focus-visible {
+  background: var(--ink);
+  color: var(--field);
+}
+
+.constellation-card h2,
+.artifact-card h2,
+.output-card h2,
+.course-card h2 {
+  font-size: clamp(1.06rem, 1.45vw, 1.32rem);
+  line-height: 1.08;
+}
+
+.related-card-section {
+  padding-top: 1rem;
+}
+
+.card {
+  position: relative;
+  display: block;
+  min-width: 0;
+  max-width: 100%;
+  min-height: 100%;
+  padding: 1.05rem 1.05rem 1.05rem 2.05rem;
+  border: 1px solid var(--line-dark);
+  border-radius: 0;
+  background:
+    radial-gradient(circle at 18% 28%, rgba(23, 21, 15, 0.08) 0 0.5px, transparent 0.82px),
+    radial-gradient(circle at 79% 64%, rgba(23, 21, 15, 0.06) 0 0.42px, transparent 0.78px),
+    linear-gradient(180deg, rgba(255, 250, 237, 0.46), transparent 42%),
+    repeating-linear-gradient(0deg, transparent 0 1.62rem, rgba(56, 45, 30, 0.032) 1.62rem calc(1.62rem + 1px)),
+    var(--field);
+  background-size: 3.2rem 2.45rem, 4.6rem 3.35rem, auto, auto, auto;
+  color: var(--ink);
+  text-decoration: none;
+  box-shadow: 0.28rem 0.28rem 0 rgba(17, 17, 15, 0.13);
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0.58rem auto 0 0;
+  width: 0.98rem;
+  border-right: 1px solid var(--line-dark);
+  background:
+    radial-gradient(circle, var(--ink) 0 0.13rem, transparent 0.14rem 100%),
+    var(--field);
+  background-size: 0.98rem 0.62rem;
+  z-index: 1;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 0.58rem;
+  border-bottom: 1px solid var(--line-dark);
+  background:
+    radial-gradient(circle, var(--ink) 0 0.095rem, transparent 0.1rem 100%),
+    var(--field);
+  background-size: 0.58rem 0.58rem;
+  opacity: 0.92;
+  z-index: 0;
+}
+
+.card.is-clickable {
+  cursor: pointer;
+}
+
+.card.is-clickable:hover {
+  background:
+    radial-gradient(circle at 18% 28%, rgba(23, 21, 15, 0.09) 0 0.5px, transparent 0.82px),
+    radial-gradient(circle at 79% 64%, rgba(23, 21, 15, 0.065) 0 0.42px, transparent 0.78px),
+    linear-gradient(180deg, rgba(255, 250, 237, 0.62), transparent 42%),
+    repeating-linear-gradient(0deg, transparent 0 1.62rem, rgba(56, 45, 30, 0.034) 1.62rem calc(1.62rem + 1px)),
+    #fff8e8;
+  transform: translateY(-1px);
+}
+
+.home-board .home-events-card,
+.home-board .home-profile-main {
+  align-self: stretch;
+  height: auto;
+  min-height: clamp(12.5rem, 18vw, 15rem);
+  padding-block: 0.9rem;
+}
+
+.home-board .home-events-card p {
+  font-size: 0.84rem;
+  line-height: 1.27;
+}
+
+.home-board .home-events-card p + p {
+  margin-top: 0.5rem;
+}
+
+.card-content {
+  position: relative;
+  z-index: 2;
+  min-width: 0;
+  padding-top: 0.72rem;
+}
+
+.card-plot {
+  position: absolute;
+  right: -0.8rem;
+  bottom: -0.8rem;
+  width: min(52%, 10rem);
+  aspect-ratio: 1;
+  opacity: 0.14;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.card-plot::before,
+.card-plot::after {
+  content: "";
+  position: absolute;
+  inset: 8%;
+  border: 1px solid var(--ink);
+  border-radius: 50%;
+  transform: scaleX(0.72) rotate(22deg);
+}
+
+.card-plot::after {
+  inset: 22%;
+  transform: scaleX(1.28) rotate(-31deg);
+}
+
+.card-plot span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 88%;
+  border-top: 1px solid var(--ink);
+  transform-origin: left center;
+}
+
+.card-plot span:nth-child(1) {
+  transform: rotate(12deg) translateX(-50%);
+}
+
+.card-plot span:nth-child(2) {
+  transform: rotate(41deg) translateX(-50%);
+}
+
+.card-plot span:nth-child(3) {
+  transform: rotate(76deg) translateX(-50%);
+}
+
+.card-plot span:nth-child(4) {
+  transform: rotate(118deg) translateX(-50%);
+}
+
+.card-plot span:nth-child(5) {
+  transform: rotate(154deg) translateX(-50%);
+}
+
+.phase-0 .card-plot {
+  right: -0.8rem;
+  bottom: -0.8rem;
+  width: min(52%, 10rem);
+}
+
+.phase-1 .card-plot {
+  right: 0.35rem;
+  bottom: -1rem;
+  width: min(46%, 8.5rem);
+  transform: rotate(9deg);
+}
+
+.phase-2 .card-plot {
+  right: -1.4rem;
+  bottom: 0.4rem;
+  width: min(58%, 11rem);
+  transform: rotate(-11deg);
+}
+
+.phase-3 .card-plot {
+  right: 0.8rem;
+  bottom: 0.2rem;
+  width: min(42%, 8rem);
+  transform: scaleY(1.18);
+}
+
+.phase-4 .card-plot {
+  right: -0.5rem;
+  bottom: 1rem;
+  width: min(50%, 9.5rem);
+  transform: rotate(18deg) scaleX(0.9);
+}
+
+.phase-5 .card-plot {
+  right: 1.1rem;
+  bottom: -1.2rem;
+  width: min(54%, 10.4rem);
+  transform: rotate(-24deg) scaleY(0.92);
+}
+
+.pattern-lattice .card-plot {
+  background:
+    linear-gradient(30deg, transparent 0 48%, var(--ink) 48.3% 49%, transparent 49.3%),
+    linear-gradient(150deg, transparent 0 48%, var(--ink) 48.3% 49%, transparent 49.3%);
+  background-size: 2.1rem 2.1rem;
+}
+
+.pattern-lattice .card-plot::before {
+  border-radius: 0;
+  transform: rotate(18deg);
+}
+
+.pattern-lattice .card-plot::after {
+  border-radius: 0;
+  transform: rotate(45deg) scale(0.72);
+}
+
+.pattern-oscillon .card-plot::before {
+  inset: 6%;
+  border-radius: 50%;
+  transform: scaleX(0.34) rotate(18deg);
+}
+
+.pattern-oscillon .card-plot::after {
+  inset: 10%;
+  border-radius: 50%;
+  transform: scaleX(1.78) rotate(-22deg);
+}
+
+.pattern-oscillon .card-plot span:nth-child(1) {
+  transform: rotate(8deg) translateX(-50%);
+}
+
+.pattern-oscillon .card-plot span:nth-child(2) {
+  transform: rotate(26deg) translateX(-50%);
+}
+
+.pattern-oscillon .card-plot span:nth-child(3) {
+  transform: rotate(58deg) translateX(-50%);
+}
+
+.pattern-oscillon .card-plot span:nth-child(4) {
+  transform: rotate(116deg) translateX(-50%);
+}
+
+.pattern-oscillon .card-plot span:nth-child(5) {
+  transform: rotate(148deg) translateX(-50%);
+}
+
+.pattern-cellular .card-plot {
+  background:
+    radial-gradient(circle, var(--ink) 0 1.4px, transparent 1.5px 100%),
+    radial-gradient(circle at 60% 42%, transparent 0 35%, var(--ink) 35.4% 36.2%, transparent 36.6%);
+  background-size: 0.72rem 0.72rem, 100% 100%;
+}
+
+.pattern-cellular .card-plot::before {
+  inset: 20%;
+  border-radius: 0;
+  transform: rotate(0deg);
+}
+
+.pattern-cellular .card-plot::after {
+  inset: 36%;
+  border-radius: 0;
+  transform: rotate(0deg);
+}
+
+.pattern-contour .card-plot {
+  background:
+    repeating-radial-gradient(ellipse at 56% 52%, transparent 0 0.52rem, var(--ink) 0.54rem 0.58rem, transparent 0.6rem 0.92rem);
+}
+
+.pattern-contour .card-plot::before {
+  inset: 9%;
+  transform: scaleX(1.4) rotate(28deg);
+}
+
+.pattern-contour .card-plot::after {
+  inset: 28%;
+  transform: scaleX(0.72) rotate(-18deg);
+}
+
+.pattern-orbit .card-plot {
+  background:
+    radial-gradient(circle at center, var(--ink) 0 0.14rem, transparent 0.15rem),
+    repeating-radial-gradient(circle at center, transparent 0 0.86rem, var(--ink) 0.88rem 0.92rem, transparent 0.94rem 1.34rem);
+}
+
+.pattern-orbit .card-plot::before {
+  inset: 4%;
+  transform: scaleY(0.42) rotate(18deg);
+}
+
+.pattern-orbit .card-plot::after {
+  inset: 8%;
+  transform: scaleY(0.42) rotate(108deg);
+}
+
+.pattern-weave .card-plot {
+  background:
+    repeating-linear-gradient(42deg, transparent 0 0.55rem, var(--ink) 0.58rem 0.62rem, transparent 0.65rem 1.02rem),
+    repeating-linear-gradient(132deg, transparent 0 0.55rem, var(--ink) 0.58rem 0.62rem, transparent 0.65rem 1.02rem);
+}
+
+.pattern-weave .card-plot::before,
+.pattern-weave .card-plot::after {
+  border-radius: 0;
+}
+
+.pattern-stochastic .card-plot {
+  background:
+    radial-gradient(circle at 22% 18%, var(--ink) 0 1.3px, transparent 1.4px),
+    radial-gradient(circle at 72% 26%, var(--ink) 0 1.4px, transparent 1.5px),
+    radial-gradient(circle at 48% 54%, var(--ink) 0 1.6px, transparent 1.7px),
+    radial-gradient(circle at 76% 78%, var(--ink) 0 1.2px, transparent 1.3px),
+    radial-gradient(circle at 32% 82%, var(--ink) 0 1.5px, transparent 1.6px);
+  background-size: 1.4rem 1.2rem, 1.8rem 1.6rem, 1.1rem 1.7rem, 1.6rem 1.1rem, 1.2rem 1.3rem;
+}
+
+.pattern-stochastic .card-plot::before {
+  inset: 18%;
+  border-radius: 0;
+  transform: rotate(18deg);
+}
+
+.pattern-stochastic .card-plot::after {
+  inset: 30%;
+  border-radius: 0;
+  transform: rotate(-14deg);
+}
+
+.pattern-fold .card-plot {
+  background:
+    linear-gradient(28deg, transparent 0 45%, var(--ink) 45.4% 46%, transparent 46.4%),
+    linear-gradient(72deg, transparent 0 52%, var(--ink) 52.4% 53%, transparent 53.4%),
+    linear-gradient(118deg, transparent 0 44%, var(--ink) 44.4% 45%, transparent 45.4%);
+}
+
+.pattern-fold .card-plot::before {
+  border-radius: 0;
+  transform: skewX(-24deg) rotate(8deg);
+}
+
+.pattern-fold .card-plot::after {
+  border-radius: 0;
+  transform: skewY(22deg) rotate(-14deg);
+}
+
+.pattern-recursive .card-plot {
+  background:
+    linear-gradient(90deg, transparent 0 48%, var(--ink) 48.4% 49%, transparent 49.4%),
+    linear-gradient(0deg, transparent 0 48%, var(--ink) 48.4% 49%, transparent 49.4%),
+    repeating-conic-gradient(from 45deg, transparent 0 20deg, var(--ink) 20.5deg 21.5deg, transparent 22deg 45deg);
+  background-size: 100% 100%, 100% 100%, 3.2rem 3.2rem;
+}
+
+.pattern-recursive .card-plot::before,
+.pattern-recursive .card-plot::after {
+  border-radius: 0;
+}
+
+.pattern-recursive .card-plot::before {
+  inset: 7%;
+  transform: rotate(0deg);
+}
+
+.pattern-recursive .card-plot::after {
+  inset: 26%;
+  transform: rotate(45deg);
+}
+
+.pattern-plotter .card-plot {
+  background:
+    radial-gradient(ellipse at 28% 22%, transparent 0 24%, var(--ink) 24.5% 25.2%, transparent 25.8% 100%),
+    radial-gradient(ellipse at 72% 64%, transparent 0 28%, var(--ink) 28.4% 29.1%, transparent 29.8% 100%),
+    radial-gradient(ellipse at 48% 48%, transparent 0 38%, var(--ink) 38.4% 39%, transparent 39.7% 100%);
+}
+
+.pattern-plotter .card-plot::before {
+  inset: 12%;
+  border-radius: 48% 52% 44% 56%;
+  transform: scaleX(1.4) rotate(17deg);
+}
+
+.pattern-plotter .card-plot::after {
+  inset: 18%;
+  border-radius: 54% 46% 58% 42%;
+  transform: scaleX(0.68) rotate(-38deg);
+}
+
+.pattern-interference .card-plot {
+  background:
+    repeating-radial-gradient(circle at 30% 42%, transparent 0 0.5rem, var(--ink) 0.53rem 0.57rem, transparent 0.6rem 0.94rem),
+    repeating-radial-gradient(circle at 72% 46%, transparent 0 0.5rem, var(--ink) 0.53rem 0.57rem, transparent 0.6rem 0.94rem);
+}
+
+.pattern-interference .card-plot::before {
+  inset: 6%;
+  border-radius: 50%;
+  transform: scaleX(1.8) rotate(9deg);
+}
+
+.pattern-interference .card-plot::after {
+  inset: 12%;
+  border-radius: 50%;
+  transform: scaleX(0.52) rotate(81deg);
+}
+
+.pattern-permutation .card-plot {
+  background:
+    radial-gradient(circle, var(--ink) 0 1.3px, transparent 1.45px),
+    linear-gradient(32deg, transparent 0 49%, var(--ink) 49.3% 49.8%, transparent 50.1%),
+    linear-gradient(118deg, transparent 0 48%, var(--ink) 48.3% 48.8%, transparent 49.1%);
+  background-size: 0.86rem 0.86rem, 100% 100%, 100% 100%;
+}
+
+.pattern-permutation .card-plot::before {
+  inset: 10%;
+  border-radius: 0;
+  transform: rotate(0deg);
+}
+
+.pattern-permutation .card-plot::after {
+  inset: 32%;
+  border-radius: 0;
+  transform: rotate(0deg);
+}
+
+.pattern-register .card-plot {
+  background:
+    repeating-linear-gradient(90deg, var(--ink) 0 0.08rem, transparent 0.08rem 0.42rem, var(--ink) 0.42rem 0.55rem, transparent 0.55rem 1.1rem),
+    repeating-linear-gradient(0deg, transparent 0 0.72rem, var(--ink) 0.74rem 0.8rem, transparent 0.82rem 1.4rem);
+}
+
+.pattern-register .card-plot::before {
+  inset: 9%;
+  border-radius: 0;
+  transform: skewX(-18deg) rotate(0deg);
+}
+
+.pattern-register .card-plot::after {
+  inset: 22%;
+  border-radius: 0;
+  transform: skewX(24deg) rotate(0deg);
+}
+
+.pattern-moire .card-plot {
+  background:
+    repeating-linear-gradient(83deg, transparent 0 0.42rem, var(--ink) 0.45rem 0.49rem, transparent 0.52rem 0.88rem),
+    repeating-linear-gradient(97deg, transparent 0 0.44rem, var(--ink) 0.47rem 0.51rem, transparent 0.54rem 0.9rem),
+    repeating-radial-gradient(ellipse at 44% 58%, transparent 0 0.92rem, var(--ink) 0.96rem 1rem, transparent 1.04rem 1.52rem);
+}
+
+.pattern-moire .card-plot::before {
+  inset: 5%;
+  transform: scaleX(0.42) rotate(19deg);
+}
+
+.pattern-moire .card-plot::after {
+  inset: 9%;
+  transform: scaleX(1.72) rotate(-17deg);
+}
+
+.pattern-persona .card-plot {
+  background:
+    radial-gradient(circle at 50% 19%, transparent 0 11%, var(--ink) 11.7% 12.7%, transparent 13.4%),
+    radial-gradient(ellipse at 50% 82%, transparent 0 34%, var(--ink) 34.5% 35.4%, transparent 36%),
+    linear-gradient(90deg, transparent 0 49.5%, var(--ink) 49.8% 50.2%, transparent 50.5%),
+    linear-gradient(0deg, transparent 0 41%, var(--ink) 41.2% 41.9%, transparent 42.2%),
+    linear-gradient(25deg, transparent 0 56%, var(--ink) 56.25% 56.9%, transparent 57.2%),
+    linear-gradient(155deg, transparent 0 56%, var(--ink) 56.25% 56.9%, transparent 57.2%);
+}
+
+.pattern-persona .card-plot::before {
+  inset: 6% 29% 58%;
+  border-radius: 50%;
+  transform: rotate(0deg);
+}
+
+.pattern-persona .card-plot::after {
+  inset: 38% 26% 8%;
+  border-radius: 46% 46% 5% 5%;
+  transform: rotate(0deg);
+}
+
+.pattern-persona .card-plot span {
+  left: 50%;
+  top: 54%;
+  width: 46%;
+}
+
+.pattern-persona .card-plot span:nth-child(1) {
+  transform: rotate(0deg) translateX(-50%);
+}
+
+.pattern-persona .card-plot span:nth-child(2) {
+  transform: rotate(34deg) translateX(-50%);
+}
+
+.pattern-persona .card-plot span:nth-child(3) {
+  transform: rotate(146deg) translateX(-50%);
+}
+
+.pattern-persona .card-plot span:nth-child(4) {
+  top: 74%;
+  transform: rotate(58deg) translateX(-50%);
+}
+
+.pattern-persona .card-plot span:nth-child(5) {
+  top: 74%;
+  transform: rotate(122deg) translateX(-50%);
+}
+
+.pattern-circuit .card-plot {
+  background:
+    radial-gradient(circle at 18% 24%, var(--ink) 0 2px, transparent 2.2px),
+    radial-gradient(circle at 72% 24%, var(--ink) 0 2px, transparent 2.2px),
+    radial-gradient(circle at 28% 70%, var(--ink) 0 2px, transparent 2.2px),
+    radial-gradient(circle at 80% 76%, var(--ink) 0 2px, transparent 2.2px),
+    linear-gradient(90deg, transparent 0 18%, var(--ink) 18.3% 18.8%, transparent 19.1% 71%, var(--ink) 71.3% 71.8%, transparent 72.1%),
+    linear-gradient(0deg, transparent 0 24%, var(--ink) 24.3% 24.8%, transparent 25.1% 69%, var(--ink) 69.3% 69.8%, transparent 70.1%);
+}
+
+.pattern-circuit .card-plot::before {
+  inset: 18% 25% 34% 22%;
+  border-radius: 0;
+  transform: rotate(0deg);
+}
+
+.pattern-circuit .card-plot::after {
+  inset: 43% 13% 18% 44%;
+  border-radius: 0;
+  transform: rotate(0deg);
+}
+
+.pattern-network .card-plot {
+  background:
+    radial-gradient(circle at 18% 74%, var(--ink) 0 2.2px, transparent 2.4px),
+    radial-gradient(circle at 34% 28%, var(--ink) 0 1.8px, transparent 2px),
+    radial-gradient(circle at 58% 48%, var(--ink) 0 2px, transparent 2.2px),
+    radial-gradient(circle at 78% 20%, var(--ink) 0 2.3px, transparent 2.5px),
+    radial-gradient(circle at 84% 78%, var(--ink) 0 1.8px, transparent 2px),
+    linear-gradient(32deg, transparent 0 50%, var(--ink) 50.2% 50.8%, transparent 51%),
+    linear-gradient(116deg, transparent 0 45%, var(--ink) 45.2% 45.8%, transparent 46%),
+    repeating-linear-gradient(90deg, transparent 0 0.8rem, var(--ink) 0.84rem 0.88rem, transparent 0.92rem 1.4rem);
+}
+
+.pattern-network .card-plot::before {
+  inset: 22%;
+  border-radius: 50%;
+  transform: scaleX(1.42) rotate(-23deg);
+}
+
+.pattern-network .card-plot::after {
+  inset: 34%;
+  border-radius: 0;
+  transform: rotate(45deg);
+}
+
+.pattern-manifold .card-plot {
+  background:
+    repeating-radial-gradient(ellipse at 36% 54%, transparent 0 0.55rem, var(--ink) 0.58rem 0.62rem, transparent 0.65rem 1rem),
+    repeating-radial-gradient(ellipse at 68% 48%, transparent 0 0.55rem, var(--ink) 0.58rem 0.62rem, transparent 0.65rem 1rem),
+    linear-gradient(24deg, transparent 0 49%, var(--ink) 49.25% 49.75%, transparent 50%),
+    linear-gradient(156deg, transparent 0 49%, var(--ink) 49.25% 49.75%, transparent 50%);
+}
+
+.pattern-manifold .card-plot::before {
+  inset: 8%;
+  border-radius: 50%;
+  transform: perspective(7rem) rotateX(58deg) rotateZ(18deg);
+}
+
+.pattern-manifold .card-plot::after {
+  inset: 16%;
+  border-radius: 50%;
+  transform: perspective(7rem) rotateX(58deg) rotateZ(-18deg);
+}
+
+.pattern-axonometric .card-plot {
+  background:
+    linear-gradient(30deg, transparent 0 48.8%, var(--ink) 49% 49.45%, transparent 49.7%),
+    linear-gradient(150deg, transparent 0 48.8%, var(--ink) 49% 49.45%, transparent 49.7%),
+    linear-gradient(90deg, transparent 0 48.8%, var(--ink) 49% 49.45%, transparent 49.7%);
+  background-size: 2.2rem 2.2rem, 2.2rem 2.2rem, 2.2rem 2.2rem;
+}
+
+.pattern-axonometric .card-plot::before,
+.pattern-axonometric .card-plot::after {
+  border-radius: 0;
+}
+
+.pattern-axonometric .card-plot::before {
+  inset: 10% 28% 18% 14%;
+  transform: skewY(-30deg) rotate(0deg);
+}
+
+.pattern-axonometric .card-plot::after {
+  inset: 18% 12% 32% 38%;
+  transform: skewY(30deg) rotate(0deg);
+}
+
+.slot-0 .card-plot span:nth-child(1) {
+  transform: rotate(6deg) translateX(-50%);
+}
+
+.slot-1 .card-plot span:nth-child(2) {
+  transform: rotate(33deg) translateX(-50%);
+}
+
+.slot-2 .card-plot span:nth-child(3) {
+  transform: rotate(69deg) translateX(-50%);
+}
+
+.slot-3 .card-plot span:nth-child(4) {
+  transform: rotate(101deg) translateX(-50%);
+}
+
+.slot-4 .card-plot span:nth-child(5) {
+  transform: rotate(141deg) translateX(-50%);
+}
+
+.slot-5 .card-plot::before {
+  inset: 14%;
+}
+
+.slot-6 .card-plot::after {
+  inset: 16%;
+}
+
+.slot-7 .card-plot span:nth-child(1) {
+  transform: rotate(19deg) translateX(-50%);
+}
+
+.slot-8 .card-plot span:nth-child(2) {
+  transform: rotate(52deg) translateX(-50%);
+}
+
+.slot-9 .card-plot span:nth-child(3) {
+  transform: rotate(88deg) translateX(-50%);
+}
+
+.slot-10 .card-plot span:nth-child(4) {
+  transform: rotate(127deg) translateX(-50%);
+}
+
+.slot-11 .card-plot span:nth-child(5) {
+  transform: rotate(166deg) translateX(-50%);
+}
+
+.pattern-wire-person .card-plot,
+.pattern-wire-calendar .card-plot,
+.pattern-wire-document .card-plot,
+.pattern-wire-system .card-plot,
+.pattern-wire-game .card-plot,
+.pattern-wire-bracket .card-plot,
+.pattern-wire-book .card-plot,
+.pattern-wire-screen .card-plot,
+.pattern-wire-palette .card-plot,
+.pattern-wire-card .card-plot {
+  width: min(42%, 8.25rem);
+  opacity: 0.15;
+  background: none;
+}
+
+.pattern-wire-person .card-plot::before,
+.pattern-wire-person .card-plot::after,
+.pattern-wire-calendar .card-plot::before,
+.pattern-wire-calendar .card-plot::after,
+.pattern-wire-document .card-plot::before,
+.pattern-wire-document .card-plot::after,
+.pattern-wire-system .card-plot::before,
+.pattern-wire-system .card-plot::after,
+.pattern-wire-game .card-plot::before,
+.pattern-wire-game .card-plot::after,
+.pattern-wire-bracket .card-plot::before,
+.pattern-wire-bracket .card-plot::after,
+.pattern-wire-book .card-plot::before,
+.pattern-wire-book .card-plot::after,
+.pattern-wire-screen .card-plot::before,
+.pattern-wire-screen .card-plot::after,
+.pattern-wire-palette .card-plot::before,
+.pattern-wire-palette .card-plot::after,
+.pattern-wire-card .card-plot::before,
+.pattern-wire-card .card-plot::after {
+  border-radius: 0;
+  transform: none;
+}
+
+.pattern-wire-person .card-plot {
+  background:
+    radial-gradient(circle at 50% 18%, transparent 0 11%, var(--ink) 11.6% 12.6%, transparent 13.2%),
+    linear-gradient(90deg, transparent 0 49.5%, var(--ink) 49.9% 50.1%, transparent 50.5%),
+    linear-gradient(28deg, transparent 0 56%, var(--ink) 56.2% 56.8%, transparent 57.1%),
+    linear-gradient(152deg, transparent 0 56%, var(--ink) 56.2% 56.8%, transparent 57.1%);
+}
+
+.pattern-wire-person .card-plot::before {
+  inset: 8% 34% 62%;
+  border-radius: 50%;
+}
+
+.pattern-wire-person .card-plot::after {
+  inset: 38% 32% 16%;
+  border-radius: 44% 44% 6% 6%;
+}
+
+.pattern-wire-person .card-plot span {
+  left: 50%;
+  top: 62%;
+  width: 48%;
+}
+
+.pattern-wire-person .card-plot span:nth-child(1) {
+  transform: rotate(0deg) translateX(-50%);
+}
+
+.pattern-wire-person .card-plot span:nth-child(2) {
+  top: 76%;
+  transform: rotate(58deg) translateX(-50%);
+}
+
+.pattern-wire-person .card-plot span:nth-child(3) {
+  top: 76%;
+  transform: rotate(122deg) translateX(-50%);
+}
+
+.pattern-wire-person .card-plot span:nth-child(4),
+.pattern-wire-person .card-plot span:nth-child(5) {
+  display: none;
+}
+
+.pattern-wire-calendar .card-plot::before {
+  inset: 18% 14% 16%;
+}
+
+.pattern-wire-calendar .card-plot::after {
+  inset: 30% 14% auto;
+  height: 0;
+}
+
+.pattern-wire-calendar .card-plot {
+  background:
+    linear-gradient(90deg, transparent 0 35%, var(--ink) 35.3% 35.9%, transparent 36.2% 64%, var(--ink) 64.3% 64.9%, transparent 65.2%),
+    linear-gradient(0deg, transparent 0 45%, var(--ink) 45.3% 45.9%, transparent 46.2% 68%, var(--ink) 68.3% 68.9%, transparent 69.2%),
+    radial-gradient(circle at 28% 23%, var(--ink) 0 1.6px, transparent 1.8px),
+    radial-gradient(circle at 72% 23%, var(--ink) 0 1.6px, transparent 1.8px);
+}
+
+.pattern-wire-calendar .card-plot span {
+  display: none;
+}
+
+.pattern-wire-document .card-plot::before {
+  inset: 12% 20% 10% 22%;
+}
+
+.pattern-wire-document .card-plot::after {
+  inset: 12% 20% auto auto;
+  width: 22%;
+  height: 22%;
+  border-left: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  border-top: 0;
+  border-right: 0;
+}
+
+.pattern-wire-document .card-plot {
+  background:
+    linear-gradient(0deg, transparent 0 38%, var(--ink) 38.3% 38.8%, transparent 39.1% 51%, var(--ink) 51.3% 51.8%, transparent 52.1% 64%, var(--ink) 64.3% 64.8%, transparent 65.1%),
+    linear-gradient(90deg, transparent 0 22%, var(--ink) 22.3% 22.7%, transparent 23%);
+}
+
+.pattern-wire-document .card-plot span {
+  display: none;
+}
+
+.pattern-wire-system .card-plot::before {
+  inset: 28% 25% 30%;
+}
+
+.pattern-wire-system .card-plot::after {
+  inset: 40% 36% 42%;
+  border-radius: 50%;
+}
+
+.pattern-wire-system .card-plot {
+  background:
+    radial-gradient(circle at 18% 50%, var(--ink) 0 2px, transparent 2.2px),
+    radial-gradient(circle at 82% 50%, var(--ink) 0 2px, transparent 2.2px),
+    radial-gradient(circle at 50% 18%, var(--ink) 0 2px, transparent 2.2px),
+    radial-gradient(circle at 50% 82%, var(--ink) 0 2px, transparent 2.2px),
+    linear-gradient(90deg, transparent 0 18%, var(--ink) 18.2% 18.7%, transparent 19% 81%, var(--ink) 81.2% 81.7%, transparent 82%),
+    linear-gradient(0deg, transparent 0 18%, var(--ink) 18.2% 18.7%, transparent 19% 81%, var(--ink) 81.2% 81.7%, transparent 82%);
+}
+
+.pattern-wire-system .card-plot span {
+  display: none;
+}
+
+.pattern-wire-game .card-plot::before {
+  inset: 34% 12% 30%;
+  border-radius: 45% 45% 42% 42%;
+}
+
+.pattern-wire-game .card-plot::after {
+  inset: 45% 55% 44% 22%;
+  border-radius: 0;
+}
+
+.pattern-wire-game .card-plot {
+  background:
+    radial-gradient(circle at 70% 49%, var(--ink) 0 2px, transparent 2.2px),
+    radial-gradient(circle at 79% 56%, var(--ink) 0 2px, transparent 2.2px),
+    linear-gradient(90deg, transparent 0 31%, var(--ink) 31.3% 31.9%, transparent 32.2% 42%, var(--ink) 42.3% 42.9%, transparent 43.2%),
+    linear-gradient(0deg, transparent 0 45%, var(--ink) 45.3% 45.9%, transparent 46.2%);
+}
+
+.pattern-wire-game .card-plot span {
+  display: none;
+}
+
+.pattern-wire-bracket .card-plot::before {
+  inset: 18% 18% 18% 20%;
+  border: 0;
+  border-left: 1px solid var(--ink);
+  border-right: 1px solid var(--ink);
+}
+
+.pattern-wire-bracket .card-plot::after {
+  inset: 22% 34% 22%;
+  border: 0;
+  border-left: 1px solid var(--ink);
+}
+
+.pattern-wire-bracket .card-plot {
+  background:
+    linear-gradient(0deg, transparent 0 24%, var(--ink) 24.3% 24.9%, transparent 25.2% 49%, var(--ink) 49.3% 49.9%, transparent 50.2% 74%, var(--ink) 74.3% 74.9%, transparent 75.2%),
+    linear-gradient(90deg, transparent 0 20%, var(--ink) 20.2% 20.8%, transparent 21.1% 64%, var(--ink) 64.2% 64.8%, transparent 65.1%);
+}
+
+.pattern-wire-bracket .card-plot span {
+  display: none;
+}
+
+.pattern-wire-book .card-plot::before {
+  inset: 18% 50% 14% 15%;
+  border-radius: 0 0 0 8%;
+}
+
+.pattern-wire-book .card-plot::after {
+  inset: 18% 15% 14% 50%;
+  border-radius: 0 0 8% 0;
+}
+
+.pattern-wire-book .card-plot {
+  background:
+    linear-gradient(90deg, transparent 0 49.5%, var(--ink) 49.8% 50.2%, transparent 50.5%),
+    linear-gradient(0deg, transparent 0 36%, var(--ink) 36.3% 36.8%, transparent 37.1% 48%, var(--ink) 48.3% 48.8%, transparent 49.1% 60%, var(--ink) 60.3% 60.8%, transparent 61.1%);
+}
+
+.pattern-wire-book .card-plot span {
+  display: none;
+}
+
+.pattern-wire-screen .card-plot::before {
+  inset: 18% 12% 28%;
+}
+
+.pattern-wire-screen .card-plot::after {
+  inset: 74% 38% 18%;
+}
+
+.pattern-wire-screen .card-plot {
+  background:
+    linear-gradient(90deg, transparent 0 35%, var(--ink) 35.2% 35.7%, transparent 36% 64%, var(--ink) 64.2% 64.7%, transparent 65%),
+    linear-gradient(0deg, transparent 0 39%, var(--ink) 39.2% 39.7%, transparent 40% 59%, var(--ink) 59.2% 59.7%, transparent 60%),
+    radial-gradient(circle at 28% 30%, var(--ink) 0 1.3px, transparent 1.5px),
+    radial-gradient(circle at 50% 50%, var(--ink) 0 1.3px, transparent 1.5px),
+    radial-gradient(circle at 72% 64%, var(--ink) 0 1.3px, transparent 1.5px);
+}
+
+.pattern-wire-screen .card-plot span {
+  display: none;
+}
+
+.pattern-wire-palette .card-plot::before {
+  inset: 16% 18% 16%;
+  border-radius: 50% 46% 54% 42%;
+}
+
+.pattern-wire-palette .card-plot::after {
+  inset: 48% 22% 24% 54%;
+  border-radius: 50%;
+}
+
+.pattern-wire-palette .card-plot {
+  background:
+    radial-gradient(circle at 36% 35%, var(--ink) 0 2px, transparent 2.2px),
+    radial-gradient(circle at 58% 31%, var(--ink) 0 2px, transparent 2.2px),
+    radial-gradient(circle at 42% 58%, var(--ink) 0 2px, transparent 2.2px),
+    linear-gradient(34deg, transparent 0 53%, var(--ink) 53.2% 53.8%, transparent 54.1%);
+}
+
+.pattern-wire-palette .card-plot span {
+  display: none;
+}
+
+.pattern-wire-card .card-plot::before {
+  inset: 22% 14% 20%;
+}
+
+.pattern-wire-card .card-plot::after {
+  inset: 38% 22% auto;
+  height: 0;
+}
+
+.pattern-wire-card .card-plot {
+  background:
+    radial-gradient(circle at 28% 30%, var(--ink) 0 1.6px, transparent 1.8px),
+    linear-gradient(0deg, transparent 0 56%, var(--ink) 56.2% 56.7%, transparent 57% 66%, var(--ink) 66.2% 66.7%, transparent 67%);
+}
+
+.pattern-wire-card .card-plot span {
+  display: none;
+}
+
+.pattern-wire-personnel .card-plot,
+.pattern-wire-calendar-empty .card-plot,
+.pattern-wire-judgment .card-plot,
+.pattern-wire-synthetic .card-plot,
+.pattern-wire-game-analysis .card-plot,
+.pattern-wire-critical-theory .card-plot,
+.pattern-wire-esports .card-plot,
+.pattern-wire-game-studies .card-plot,
+.pattern-wire-taste-ai .card-plot,
+.pattern-wire-digital .card-plot {
+  width: min(44%, 8.8rem);
+  opacity: 0.15;
+  background: none;
+}
+
+.pattern-wire-personnel .card-plot::before,
+.pattern-wire-personnel .card-plot::after,
+.pattern-wire-calendar-empty .card-plot::before,
+.pattern-wire-calendar-empty .card-plot::after,
+.pattern-wire-judgment .card-plot::before,
+.pattern-wire-judgment .card-plot::after,
+.pattern-wire-synthetic .card-plot::before,
+.pattern-wire-synthetic .card-plot::after,
+.pattern-wire-game-analysis .card-plot::before,
+.pattern-wire-game-analysis .card-plot::after,
+.pattern-wire-critical-theory .card-plot::before,
+.pattern-wire-critical-theory .card-plot::after,
+.pattern-wire-esports .card-plot::before,
+.pattern-wire-esports .card-plot::after,
+.pattern-wire-game-studies .card-plot::before,
+.pattern-wire-game-studies .card-plot::after,
+.pattern-wire-taste-ai .card-plot::before,
+.pattern-wire-taste-ai .card-plot::after,
+.pattern-wire-digital .card-plot::before,
+.pattern-wire-digital .card-plot::after {
+  border-radius: 0;
+  transform: none;
+}
+
+.pattern-wire-personnel .card-plot {
+  background:
+    radial-gradient(circle at 33% 30%, transparent 0 7.5%, var(--ink) 8% 9%, transparent 9.6%),
+    radial-gradient(ellipse at 33% 62%, transparent 0 15%, var(--ink) 15.5% 16.4%, transparent 17%),
+    linear-gradient(90deg, transparent 0 52%, var(--ink) 52.2% 52.7%, transparent 53%),
+    linear-gradient(0deg, transparent 0 42%, var(--ink) 42.2% 42.7%, transparent 43% 56%, var(--ink) 56.2% 56.7%, transparent 57%);
+}
+
+.pattern-wire-personnel .card-plot::before {
+  inset: 12% 8% 14%;
+}
+
+.pattern-wire-personnel .card-plot::after {
+  inset: 18% 58% 50% 18%;
+  border-radius: 50%;
+}
+
+.pattern-wire-personnel .card-plot span {
+  left: 63%;
+  width: 30%;
+}
+
+.pattern-wire-personnel .card-plot span:nth-child(1) {
+  top: 34%;
+  transform: rotate(0deg) translateX(-50%);
+}
+
+.pattern-wire-personnel .card-plot span:nth-child(2) {
+  top: 49%;
+  transform: rotate(0deg) translateX(-50%);
+}
+
+.pattern-wire-personnel .card-plot span:nth-child(3) {
+  top: 66%;
+  transform: rotate(0deg) translateX(-50%);
+}
+
+.pattern-wire-personnel .card-plot span:nth-child(4),
+.pattern-wire-personnel .card-plot span:nth-child(5) {
+  display: none;
+}
+
+.pattern-wire-calendar-empty .card-plot {
+  background:
+    radial-gradient(circle at 28% 24%, var(--ink) 0 1.6px, transparent 1.8px),
+    radial-gradient(circle at 72% 24%, var(--ink) 0 1.6px, transparent 1.8px),
+    radial-gradient(circle at 30% 49%, var(--ink) 0 1.2px, transparent 1.4px),
+    radial-gradient(circle at 50% 49%, var(--ink) 0 1.2px, transparent 1.4px),
+    radial-gradient(circle at 70% 49%, var(--ink) 0 1.2px, transparent 1.4px),
+    radial-gradient(circle at 30% 68%, var(--ink) 0 1.2px, transparent 1.4px),
+    radial-gradient(circle at 50% 68%, var(--ink) 0 1.2px, transparent 1.4px),
+    radial-gradient(circle at 70% 68%, var(--ink) 0 1.2px, transparent 1.4px);
+}
+
+.pattern-wire-calendar-empty .card-plot::before {
+  inset: 16% 14% 14%;
+}
+
+.pattern-wire-calendar-empty .card-plot::after {
+  inset: 32% 14% auto;
+  height: 0;
+}
+
+.pattern-wire-calendar-empty .card-plot span:nth-child(1) {
+  left: 50%;
+  top: 58%;
+  width: 40%;
+  transform: rotate(35deg) translateX(-50%);
+}
+
+.pattern-wire-calendar-empty .card-plot span:nth-child(2) {
+  left: 50%;
+  top: 58%;
+  width: 40%;
+  transform: rotate(145deg) translateX(-50%);
+}
+
+.pattern-wire-calendar-empty .card-plot span:nth-child(3),
+.pattern-wire-calendar-empty .card-plot span:nth-child(4),
+.pattern-wire-calendar-empty .card-plot span:nth-child(5) {
+  display: none;
+}
+
+.pattern-wire-judgment .card-plot {
+  background:
+    radial-gradient(circle at 50% 29%, var(--ink) 0 2px, transparent 2.2px),
+    radial-gradient(circle at 22% 58%, transparent 0 8%, var(--ink) 8.5% 9.2%, transparent 9.8%),
+    radial-gradient(circle at 78% 58%, transparent 0 8%, var(--ink) 8.5% 9.2%, transparent 9.8%),
+    radial-gradient(circle at 23% 22%, var(--ink) 0 1.2px, transparent 1.4px),
+    radial-gradient(circle at 77% 22%, var(--ink) 0 1.2px, transparent 1.4px),
+    radial-gradient(circle at 34% 78%, var(--ink) 0 1.2px, transparent 1.4px),
+    radial-gradient(circle at 66% 78%, var(--ink) 0 1.2px, transparent 1.4px);
+}
+
+.pattern-wire-judgment .card-plot::before {
+  inset: 26% 48% 14%;
+  border-right: 0;
+  border-top: 0;
+  border-bottom: 0;
+}
+
+.pattern-wire-judgment .card-plot::after {
+  inset: 73% 35% 18%;
+}
+
+.pattern-wire-judgment .card-plot span:nth-child(1) {
+  left: 50%;
+  top: 35%;
+  width: 58%;
+  transform: rotate(0deg) translateX(-50%);
+}
+
+.pattern-wire-judgment .card-plot span:nth-child(2) {
+  left: 22%;
+  top: 48%;
+  width: 21%;
+  transform: rotate(90deg) translateX(-50%);
+}
+
+.pattern-wire-judgment .card-plot span:nth-child(3) {
+  left: 78%;
+  top: 48%;
+  width: 21%;
+  transform: rotate(90deg) translateX(-50%);
+}
+
+.pattern-wire-judgment .card-plot span:nth-child(4) {
+  left: 50%;
+  top: 86%;
+  width: 42%;
+  transform: rotate(0deg) translateX(-50%);
+}
+
+.pattern-wire-judgment .card-plot span:nth-child(5) {
+  display: none;
+}
+
+.pattern-wire-synthetic .card-plot {
+  background:
+    radial-gradient(circle at 16% 32%, var(--ink) 0 1.6px, transparent 1.8px),
+    radial-gradient(circle at 16% 50%, var(--ink) 0 1.6px, transparent 1.8px),
+    radial-gradient(circle at 16% 68%, var(--ink) 0 1.6px, transparent 1.8px),
+    radial-gradient(circle at 84% 32%, var(--ink) 0 1.6px, transparent 1.8px),
+    radial-gradient(circle at 84% 50%, var(--ink) 0 1.6px, transparent 1.8px),
+    radial-gradient(circle at 84% 68%, var(--ink) 0 1.6px, transparent 1.8px),
+    radial-gradient(circle, var(--ink) 0 1px, transparent 1.2px);
+  background-size: auto, auto, auto, auto, auto, auto, 0.55rem 0.55rem;
+}
+
+.pattern-wire-synthetic .card-plot::before {
+  inset: 28% 30% 28%;
+}
+
+.pattern-wire-synthetic .card-plot::after {
+  inset: 40% 42% 40%;
+  border-radius: 50%;
+}
+
+.pattern-wire-synthetic .card-plot span:nth-child(1) {
+  left: 30%;
+  top: 32%;
+  width: 27%;
+  transform: rotate(0deg) translateX(-50%);
+}
+
+.pattern-wire-synthetic .card-plot span:nth-child(2) {
+  left: 30%;
+  top: 50%;
+  width: 27%;
+  transform: rotate(0deg) translateX(-50%);
+}
+
+.pattern-wire-synthetic .card-plot span:nth-child(3) {
+  left: 30%;
+  top: 68%;
+  width: 27%;
+  transform: rotate(0deg) translateX(-50%);
+}
+
+.pattern-wire-synthetic .card-plot span:nth-child(4) {
+  left: 72%;
+  top: 41%;
+  width: 24%;
+  transform: rotate(0deg) translateX(-50%);
+}
+
+.pattern-wire-synthetic .card-plot span:nth-child(5) {
+  left: 72%;
+  top: 59%;
+  width: 24%;
+  transform: rotate(0deg) translateX(-50%);
+}
+
+.pattern-wire-game-analysis .card-plot {
+  background:
+    radial-gradient(ellipse at 70% 64%, transparent 0 18%, var(--ink) 18.6% 19.2%, transparent 19.8%),
+    radial-gradient(circle at 42% 42%, var(--ink) 0 2px, transparent 2.2px),
+    linear-gradient(90deg, transparent 0 18%, var(--ink) 18.3% 18.8%, transparent 19% 82%, var(--ink) 82.3% 82.8%, transparent 83%),
+    linear-gradient(0deg, transparent 0 22%, var(--ink) 22.3% 22.8%, transparent 23% 74%, var(--ink) 74.3% 74.8%, transparent 75%);
+}
+
+.pattern-wire-game-analysis .card-plot::before {
+  inset: 20% 18% 22%;
+}
+
+.pattern-wire-game-analysis .card-plot::after {
+  inset: 45% 8% 20% 48%;
+  border-radius: 50%;
+}
+
+.pattern-wire-game-analysis .card-plot span:nth-child(1) {
+  left: 42%;
+  top: 42%;
+  width: 48%;
+  transform: rotate(19deg) translateX(0);
+}
+
+.pattern-wire-game-analysis .card-plot span:nth-child(2) {
+  left: 42%;
+  top: 42%;
+  width: 42%;
+  transform: rotate(62deg) translateX(0);
+}
+
+.pattern-wire-game-analysis .card-plot span:nth-child(3) {
+  left: 24%;
+  top: 60%;
+  width: 42%;
+  transform: rotate(0deg) translateX(0);
+}
+
+.pattern-wire-game-analysis .card-plot span:nth-child(4) {
+  left: 62%;
+  top: 70%;
+  width: 30%;
+  transform: rotate(10deg) translateX(0);
+}
+
+.pattern-wire-game-analysis .card-plot span:nth-child(5) {
+  display: none;
+}
+
+.pattern-wire-critical-theory .card-plot {
+  background:
+    radial-gradient(circle at 50% 18%, var(--ink) 0 1.7px, transparent 1.9px),
+    radial-gradient(circle at 24% 52%, var(--ink) 0 1.4px, transparent 1.6px),
+    radial-gradient(circle at 50% 52%, var(--ink) 0 1.4px, transparent 1.6px),
+    radial-gradient(circle at 76% 52%, var(--ink) 0 1.4px, transparent 1.6px),
+    linear-gradient(90deg, transparent 0 49.5%, var(--ink) 49.8% 50.2%, transparent 50.5%);
+}
+
+.pattern-wire-critical-theory .card-plot::before {
+  inset: 58% 50% 14% 16%;
+}
+
+.pattern-wire-critical-theory .card-plot::after {
+  inset: 58% 16% 14% 50%;
+}
+
+.pattern-wire-critical-theory .card-plot span:nth-child(1) {
+  left: 50%;
+  top: 32%;
+  width: 44%;
+  transform: rotate(0deg) translateX(-50%);
+}
+
+.pattern-wire-critical-theory .card-plot span:nth-child(2) {
+  left: 50%;
+  top: 35%;
+  width: 28%;
+  transform: rotate(38deg) translateX(0);
+}
+
+.pattern-wire-critical-theory .card-plot span:nth-child(3) {
+  left: 50%;
+  top: 35%;
+  width: 28%;
+  transform: rotate(142deg) translateX(0);
+}
+
+.pattern-wire-critical-theory .card-plot span:nth-child(4) {
+  left: 50%;
+  top: 68%;
+  width: 38%;
+  transform: rotate(0deg) translateX(-50%);
+}
+
+.pattern-wire-critical-theory .card-plot span:nth-child(5) {
+  left: 50%;
+  top: 78%;
+  width: 38%;
+  transform: rotate(0deg) translateX(-50%);
+}
+
+.pattern-wire-esports .card-plot {
+  background:
+    radial-gradient(circle at 18% 26%, var(--ink) 0 1.6px, transparent 1.8px),
+    radial-gradient(circle at 18% 43%, var(--ink) 0 1.6px, transparent 1.8px),
+    radial-gradient(circle at 18% 60%, var(--ink) 0 1.6px, transparent 1.8px),
+    radial-gradient(circle at 18% 77%, var(--ink) 0 1.6px, transparent 1.8px),
+    radial-gradient(circle at 54% 36%, var(--ink) 0 1.7px, transparent 1.9px),
+    radial-gradient(circle at 54% 68%, var(--ink) 0 1.7px, transparent 1.9px),
+    radial-gradient(circle at 82% 52%, var(--ink) 0 2px, transparent 2.2px);
+}
+
+.pattern-wire-esports .card-plot::before {
+  inset: 18% 10% 16%;
+}
+
+.pattern-wire-esports .card-plot::after {
+  inset: 62% 54% 20% 14%;
+  border-radius: 45% 45% 42% 42%;
+}
+
+.pattern-wire-esports .card-plot span:nth-child(1) {
+  left: 18%;
+  top: 34%;
+  width: 36%;
+  transform: rotate(0deg) translateX(0);
+}
+
+.pattern-wire-esports .card-plot span:nth-child(2) {
+  left: 18%;
+  top: 68%;
+  width: 36%;
+  transform: rotate(0deg) translateX(0);
+}
+
+.pattern-wire-esports .card-plot span:nth-child(3) {
+  left: 54%;
+  top: 52%;
+  width: 28%;
+  transform: rotate(0deg) translateX(0);
+}
+
+.pattern-wire-esports .card-plot span:nth-child(4) {
+  left: 36%;
+  top: 44%;
+  width: 23%;
+  transform: rotate(90deg) translateX(-50%);
+}
+
+.pattern-wire-esports .card-plot span:nth-child(5) {
+  left: 68%;
+  top: 30%;
+  width: 20%;
+  transform: rotate(0deg) translateX(-50%);
+}
+
+.pattern-wire-game-studies .card-plot {
+  background:
+    radial-gradient(circle at 18% 44%, var(--ink) 0 1.4px, transparent 1.6px),
+    radial-gradient(circle at 34% 44%, var(--ink) 0 1.4px, transparent 1.6px),
+    radial-gradient(circle at 50% 44%, var(--ink) 0 1.4px, transparent 1.6px),
+    radial-gradient(circle at 66% 44%, var(--ink) 0 1.4px, transparent 1.6px),
+    radial-gradient(circle at 82% 44%, var(--ink) 0 1.4px, transparent 1.6px),
+    radial-gradient(circle, var(--ink) 0 1px, transparent 1.2px);
+  background-size: auto, auto, auto, auto, auto, 0.72rem 0.72rem;
+}
+
+.pattern-wire-game-studies .card-plot::before {
+  inset: 58% 18% 18%;
+}
+
+.pattern-wire-game-studies .card-plot::after {
+  inset: 64% 62% 24% 24%;
+}
+
+.pattern-wire-game-studies .card-plot span:nth-child(1) {
+  left: 18%;
+  top: 44%;
+  width: 64%;
+  transform: rotate(0deg) translateX(0);
+}
+
+.pattern-wire-game-studies .card-plot span:nth-child(2) {
+  left: 34%;
+  top: 44%;
+  width: 20%;
+  transform: rotate(-36deg) translateX(0);
+}
+
+.pattern-wire-game-studies .card-plot span:nth-child(3) {
+  left: 50%;
+  top: 44%;
+  width: 18%;
+  transform: rotate(38deg) translateX(0);
+}
+
+.pattern-wire-game-studies .card-plot span:nth-child(4) {
+  left: 66%;
+  top: 44%;
+  width: 20%;
+  transform: rotate(-28deg) translateX(0);
+}
+
+.pattern-wire-game-studies .card-plot span:nth-child(5) {
+  left: 50%;
+  top: 70%;
+  width: 42%;
+  transform: rotate(0deg) translateX(-50%);
+}
+
+.pattern-wire-taste-ai .card-plot {
+  background:
+    radial-gradient(circle at 30% 35%, var(--ink) 0 1.8px, transparent 2px),
+    radial-gradient(circle at 47% 30%, var(--ink) 0 1.8px, transparent 2px),
+    radial-gradient(circle at 41% 52%, var(--ink) 0 1.8px, transparent 2px),
+    radial-gradient(circle at 78% 30%, var(--ink) 0 1.4px, transparent 1.6px),
+    radial-gradient(circle at 78% 46%, var(--ink) 0 1.4px, transparent 1.6px),
+    radial-gradient(circle at 78% 62%, var(--ink) 0 1.4px, transparent 1.6px);
+}
+
+.pattern-wire-taste-ai .card-plot::before {
+  inset: 14% 34% 30% 14%;
+  border-radius: 50% 46% 54% 42%;
+}
+
+.pattern-wire-taste-ai .card-plot::after {
+  inset: 20% 16% 22% 68%;
+}
+
+.pattern-wire-taste-ai .card-plot span:nth-child(1) {
+  left: 62%;
+  top: 30%;
+  width: 20%;
+  transform: rotate(0deg) translateX(0);
+}
+
+.pattern-wire-taste-ai .card-plot span:nth-child(2) {
+  left: 62%;
+  top: 46%;
+  width: 20%;
+  transform: rotate(0deg) translateX(0);
+}
+
+.pattern-wire-taste-ai .card-plot span:nth-child(3) {
+  left: 62%;
+  top: 62%;
+  width: 20%;
+  transform: rotate(0deg) translateX(0);
+}
+
+.pattern-wire-taste-ai .card-plot span:nth-child(4) {
+  left: 38%;
+  top: 74%;
+  width: 48%;
+  transform: rotate(0deg) translateX(-50%);
+}
+
+.pattern-wire-taste-ai .card-plot span:nth-child(5) {
+  display: none;
+}
+
+.pattern-wire-digital .card-plot {
+  background:
+    radial-gradient(circle at 18% 32%, var(--ink) 0 1.4px, transparent 1.6px),
+    radial-gradient(circle at 30% 32%, var(--ink) 0 1.4px, transparent 1.6px),
+    radial-gradient(circle at 42% 32%, var(--ink) 0 1.4px, transparent 1.6px),
+    radial-gradient(circle at 18% 48%, var(--ink) 0 1.4px, transparent 1.6px),
+    radial-gradient(circle at 42% 48%, var(--ink) 0 1.4px, transparent 1.6px),
+    radial-gradient(circle at 30% 64%, var(--ink) 0 1.4px, transparent 1.6px),
+    radial-gradient(circle at 42% 64%, var(--ink) 0 1.4px, transparent 1.6px);
+}
+
+.pattern-wire-digital .card-plot::before {
+  inset: 20% 14% 22%;
+}
+
+.pattern-wire-digital .card-plot::after {
+  inset: 30% 50% 30% 16%;
+}
+
+.pattern-wire-digital .card-plot span:nth-child(1) {
+  left: 48%;
+  top: 56%;
+  width: 18%;
+  transform: rotate(-32deg) translateX(0);
+}
+
+.pattern-wire-digital .card-plot span:nth-child(2) {
+  left: 60%;
+  top: 47%;
+  width: 16%;
+  transform: rotate(28deg) translateX(0);
+}
+
+.pattern-wire-digital .card-plot span:nth-child(3) {
+  left: 71%;
+  top: 55%;
+  width: 18%;
+  transform: rotate(-28deg) translateX(0);
+}
+
+.pattern-wire-digital .card-plot span:nth-child(4) {
+  left: 62%;
+  top: 28%;
+  width: 30%;
+  transform: rotate(0deg) translateX(0);
+}
+
+.pattern-wire-digital .card-plot span:nth-child(5) {
+  left: 62%;
+  top: 74%;
+  width: 30%;
+  transform: rotate(0deg) translateX(0);
+}
+
+.pattern-wire-cosmoludics .card-plot,
+.pattern-wire-preenactment .card-plot,
+.pattern-wire-speculation .card-plot,
+.pattern-wire-autoplay .card-plot,
+.pattern-wire-habit .card-plot,
+.pattern-wire-models .card-plot,
+.pattern-wire-askesis .card-plot,
+.pattern-wire-pedagogy .card-plot,
+.pattern-wire-novel .card-plot,
+.pattern-wire-sound .card-plot,
+.pattern-wire-platform .card-plot,
+.pattern-wire-tokenizer .card-plot,
+.pattern-wire-human-mode .card-plot,
+.pattern-wire-latent-levels .card-plot,
+.pattern-wire-perspective .card-plot {
+  width: min(44%, 8.8rem);
+  opacity: 0.15;
+  background: none;
+}
+
+.pattern-wire-cosmoludics .card-plot::before,
+.pattern-wire-cosmoludics .card-plot::after,
+.pattern-wire-preenactment .card-plot::before,
+.pattern-wire-preenactment .card-plot::after,
+.pattern-wire-speculation .card-plot::before,
+.pattern-wire-speculation .card-plot::after,
+.pattern-wire-autoplay .card-plot::before,
+.pattern-wire-autoplay .card-plot::after,
+.pattern-wire-habit .card-plot::before,
+.pattern-wire-habit .card-plot::after,
+.pattern-wire-models .card-plot::before,
+.pattern-wire-models .card-plot::after,
+.pattern-wire-askesis .card-plot::before,
+.pattern-wire-askesis .card-plot::after,
+.pattern-wire-pedagogy .card-plot::before,
+.pattern-wire-pedagogy .card-plot::after,
+.pattern-wire-novel .card-plot::before,
+.pattern-wire-novel .card-plot::after,
+.pattern-wire-sound .card-plot::before,
+.pattern-wire-sound .card-plot::after,
+.pattern-wire-platform .card-plot::before,
+.pattern-wire-platform .card-plot::after,
+.pattern-wire-tokenizer .card-plot::before,
+.pattern-wire-tokenizer .card-plot::after,
+.pattern-wire-human-mode .card-plot::before,
+.pattern-wire-human-mode .card-plot::after,
+.pattern-wire-latent-levels .card-plot::before,
+.pattern-wire-latent-levels .card-plot::after,
+.pattern-wire-perspective .card-plot::before,
+.pattern-wire-perspective .card-plot::after {
+  border-radius: 0;
+  transform: none;
+}
+
+.pattern-wire-cosmoludics .card-plot {
+  background:
+    radial-gradient(ellipse at 50% 54%, transparent 0 31%, var(--ink) 31.5% 32.2%, transparent 32.8%),
+    radial-gradient(circle at 30% 54%, var(--ink) 0 2px, transparent 2.2px),
+    radial-gradient(circle at 70% 54%, var(--ink) 0 2px, transparent 2.2px),
+    radial-gradient(circle at 50% 54%, var(--ink) 0 1.6px, transparent 1.8px);
+}
+
+.pattern-wire-cosmoludics .card-plot::before {
+  inset: 28% 18% 24%;
+  border-radius: 50%;
+}
+
+.pattern-wire-cosmoludics .card-plot::after {
+  inset: 44% 28% 42%;
+}
+
+.pattern-wire-cosmoludics .card-plot span:nth-child(1) {
+  left: 22%;
+  top: 54%;
+  width: 56%;
+  transform: rotate(0deg) translateX(0);
+}
+
+.pattern-wire-cosmoludics .card-plot span:nth-child(2) {
+  left: 50%;
+  top: 26%;
+  width: 42%;
+  transform: rotate(90deg) translateX(-50%);
+}
+
+.pattern-wire-cosmoludics .card-plot span:nth-child(3) {
+  left: 34%;
+  top: 72%;
+  width: 32%;
+  transform: rotate(-18deg) translateX(0);
+}
+
+.pattern-wire-cosmoludics .card-plot span:nth-child(4),
+.pattern-wire-cosmoludics .card-plot span:nth-child(5) {
+  display: none;
+}
+
+.pattern-wire-preenactment .card-plot {
+  background:
+    radial-gradient(circle at 18% 74%, var(--ink) 0 2px, transparent 2.2px),
+    radial-gradient(circle at 50% 48%, var(--ink) 0 1.7px, transparent 1.9px),
+    radial-gradient(circle at 80% 26%, var(--ink) 0 2px, transparent 2.2px),
+    radial-gradient(circle, var(--ink) 0 1px, transparent 1.2px);
+  background-size: auto, auto, auto, 0.62rem 0.62rem;
+}
+
+.pattern-wire-preenactment .card-plot::before {
+  inset: 18% 16% 18%;
+}
+
+.pattern-wire-preenactment .card-plot::after {
+  inset: 24% 20% 26% 42%;
+  transform: skewX(-18deg);
+}
+
+.pattern-wire-preenactment .card-plot span:nth-child(1) {
+  left: 18%;
+  top: 74%;
+  width: 72%;
+  transform: rotate(-29deg) translateX(0);
+}
+
+.pattern-wire-preenactment .card-plot span:nth-child(2) {
+  left: 50%;
+  top: 48%;
+  width: 33%;
+  transform: rotate(90deg) translateX(-50%);
+}
+
+.pattern-wire-preenactment .card-plot span:nth-child(3) {
+  left: 52%;
+  top: 72%;
+  width: 36%;
+  transform: rotate(0deg) translateX(0);
+}
+
+.pattern-wire-preenactment .card-plot span:nth-child(4),
+.pattern-wire-preenactment .card-plot span:nth-child(5) {
+  display: none;
+}
+
+.pattern-wire-speculation .card-plot {
+  background:
+    radial-gradient(circle at 28% 30%, transparent 0 11%, var(--ink) 11.5% 12.2%, transparent 12.8%),
+    radial-gradient(circle at 74% 68%, var(--ink) 0 1.5px, transparent 1.7px),
+    radial-gradient(circle at 54% 54%, var(--ink) 0 1.4px, transparent 1.6px),
+    radial-gradient(circle at 80% 42%, var(--ink) 0 1.4px, transparent 1.6px);
+}
+
+.pattern-wire-speculation .card-plot::before {
+  inset: 18% 14% 20%;
+}
+
+.pattern-wire-speculation .card-plot::after {
+  inset: 56% 18% 28%;
+}
+
+.pattern-wire-speculation .card-plot span:nth-child(1) {
+  left: 28%;
+  top: 62%;
+  width: 52%;
+  transform: rotate(0deg) translateX(0);
+}
+
+.pattern-wire-speculation .card-plot span:nth-child(2) {
+  left: 50%;
+  top: 62%;
+  width: 34%;
+  transform: rotate(-26deg) translateX(0);
+}
+
+.pattern-wire-speculation .card-plot span:nth-child(3) {
+  left: 50%;
+  top: 62%;
+  width: 30%;
+  transform: rotate(28deg) translateX(0);
+}
+
+.pattern-wire-speculation .card-plot span:nth-child(4),
+.pattern-wire-speculation .card-plot span:nth-child(5) {
+  display: none;
+}
+
+.pattern-wire-autoplay .card-plot {
+  background:
+    repeating-radial-gradient(circle at 50% 50%, transparent 0 1rem, var(--ink) 1.03rem 1.08rem, transparent 1.12rem 1.65rem),
+    radial-gradient(circle at 50% 50%, var(--ink) 0 2px, transparent 2.2px);
+}
+
+.pattern-wire-autoplay .card-plot::before {
+  inset: 28% 30% 28% 36%;
+  border: 0;
+  border-left: 1px solid var(--ink);
+  border-top: 1px solid var(--ink);
+  transform: skewX(-24deg);
+}
+
+.pattern-wire-autoplay .card-plot::after {
+  inset: 18% 18% 18%;
+  border-radius: 50%;
+}
+
+.pattern-wire-autoplay .card-plot span:nth-child(1) {
+  left: 68%;
+  top: 28%;
+  width: 18%;
+  transform: rotate(45deg) translateX(0);
+}
+
+.pattern-wire-autoplay .card-plot span:nth-child(2) {
+  left: 50%;
+  top: 50%;
+  width: 58%;
+  transform: rotate(0deg) translateX(-50%);
+}
+
+.pattern-wire-autoplay .card-plot span:nth-child(3),
+.pattern-wire-autoplay .card-plot span:nth-child(4),
+.pattern-wire-autoplay .card-plot span:nth-child(5) {
+  display: none;
+}
+
+.pattern-wire-habit .card-plot {
+  background:
+    radial-gradient(circle at 24% 62%, var(--ink) 0 1.7px, transparent 1.9px),
+    radial-gradient(circle at 50% 34%, var(--ink) 0 1.7px, transparent 1.9px),
+    radial-gradient(circle at 76% 62%, var(--ink) 0 1.7px, transparent 1.9px),
+    repeating-radial-gradient(ellipse at 50% 50%, transparent 0 1.05rem, var(--ink) 1.08rem 1.12rem, transparent 1.16rem 1.65rem);
+}
+
+.pattern-wire-habit .card-plot::before {
+  inset: 22% 18% 20%;
+  border-radius: 50%;
+}
+
+.pattern-wire-habit .card-plot::after {
+  inset: 44% 28% 32%;
+}
+
+.pattern-wire-habit .card-plot span:nth-child(1) {
+  left: 24%;
+  top: 62%;
+  width: 30%;
+  transform: rotate(-43deg) translateX(0);
+}
+
+.pattern-wire-habit .card-plot span:nth-child(2) {
+  left: 50%;
+  top: 34%;
+  width: 30%;
+  transform: rotate(43deg) translateX(0);
+}
+
+.pattern-wire-habit .card-plot span:nth-child(3) {
+  left: 34%;
+  top: 78%;
+  width: 32%;
+  transform: rotate(0deg) translateX(0);
+}
+
+.pattern-wire-habit .card-plot span:nth-child(4),
+.pattern-wire-habit .card-plot span:nth-child(5) {
+  display: none;
+}
+
+.pattern-wire-models .card-plot {
+  background:
+    radial-gradient(circle at 18% 50%, var(--ink) 0 1.5px, transparent 1.7px),
+    radial-gradient(circle at 82% 50%, var(--ink) 0 1.5px, transparent 1.7px),
+    linear-gradient(90deg, transparent 0 48%, var(--ink) 48.3% 48.8%, transparent 49.1%),
+    linear-gradient(0deg, transparent 0 48%, var(--ink) 48.3% 48.8%, transparent 49.1%);
+}
+
+.pattern-wire-models .card-plot::before {
+  inset: 20% 48% 20% 14%;
+}
+
+.pattern-wire-models .card-plot::after {
+  inset: 28% 14% 28% 52%;
+}
+
+.pattern-wire-models .card-plot span:nth-child(1) {
+  left: 36%;
+  top: 50%;
+  width: 28%;
+  transform: rotate(0deg) translateX(0);
+}
+
+.pattern-wire-models .card-plot span:nth-child(2) {
+  left: 30%;
+  top: 34%;
+  width: 18%;
+  transform: rotate(0deg) translateX(0);
+}
+
+.pattern-wire-models .card-plot span:nth-child(3) {
+  left: 62%;
+  top: 68%;
+  width: 22%;
+  transform: rotate(0deg) translateX(0);
+}
+
+.pattern-wire-models .card-plot span:nth-child(4),
+.pattern-wire-models .card-plot span:nth-child(5) {
+  display: none;
+}
+
+.pattern-wire-askesis .card-plot {
+  background:
+    radial-gradient(circle at 46% 22%, transparent 0 6%, var(--ink) 6.5% 7.3%, transparent 7.8%),
+    linear-gradient(90deg, transparent 0 45.5%, var(--ink) 45.8% 46.3%, transparent 46.6%),
+    linear-gradient(0deg, transparent 0 68%, var(--ink) 68.2% 68.7%, transparent 69%);
+}
+
+.pattern-wire-askesis .card-plot::before {
+  inset: 36% 38% 32%;
+  border-radius: 50% 50% 8% 8%;
+}
+
+.pattern-wire-askesis .card-plot::after {
+  inset: 18% 18% 18%;
+}
+
+.pattern-wire-askesis .card-plot span:nth-child(1) {
+  left: 46%;
+  top: 48%;
+  width: 34%;
+  transform: rotate(25deg) translateX(0);
+}
+
+.pattern-wire-askesis .card-plot span:nth-child(2) {
+  left: 46%;
+  top: 48%;
+  width: 34%;
+  transform: rotate(155deg) translateX(0);
+}
+
+.pattern-wire-askesis .card-plot span:nth-child(3) {
+  left: 46%;
+  top: 64%;
+  width: 30%;
+  transform: rotate(64deg) translateX(0);
+}
+
+.pattern-wire-askesis .card-plot span:nth-child(4) {
+  left: 46%;
+  top: 64%;
+  width: 30%;
+  transform: rotate(116deg) translateX(0);
+}
+
+.pattern-wire-askesis .card-plot span:nth-child(5) {
+  display: none;
+}
+
+.pattern-wire-pedagogy .card-plot {
+  background:
+    radial-gradient(circle at 28% 68%, var(--ink) 0 1.6px, transparent 1.8px),
+    radial-gradient(circle at 50% 68%, var(--ink) 0 1.6px, transparent 1.8px),
+    radial-gradient(circle at 72% 68%, var(--ink) 0 1.6px, transparent 1.8px),
+    radial-gradient(circle at 50% 34%, var(--ink) 0 1.8px, transparent 2px);
+}
+
+.pattern-wire-pedagogy .card-plot::before {
+  inset: 18% 24% 46%;
+}
+
+.pattern-wire-pedagogy .card-plot::after {
+  inset: 56% 16% 26%;
+  border-radius: 50%;
+}
+
+.pattern-wire-pedagogy .card-plot span:nth-child(1) {
+  left: 28%;
+  top: 68%;
+  width: 44%;
+  transform: rotate(0deg) translateX(0);
+}
+
+.pattern-wire-pedagogy .card-plot span:nth-child(2) {
+  left: 50%;
+  top: 52%;
+  width: 17%;
+  transform: rotate(90deg) translateX(-50%);
+}
+
+.pattern-wire-pedagogy .card-plot span:nth-child(3),
+.pattern-wire-pedagogy .card-plot span:nth-child(4),
+.pattern-wire-pedagogy .card-plot span:nth-child(5) {
+  display: none;
+}
+
+.pattern-wire-novel .card-plot {
+  background:
+    linear-gradient(90deg, transparent 0 49.5%, var(--ink) 49.8% 50.2%, transparent 50.5%),
+    radial-gradient(circle at 68% 34%, var(--ink) 0 1.3px, transparent 1.5px),
+    radial-gradient(circle at 80% 34%, var(--ink) 0 1.3px, transparent 1.5px),
+    radial-gradient(circle at 68% 46%, var(--ink) 0 1.3px, transparent 1.5px),
+    radial-gradient(circle at 80% 46%, var(--ink) 0 1.3px, transparent 1.5px);
+}
+
+.pattern-wire-novel .card-plot::before {
+  inset: 18% 50% 14% 16%;
+}
+
+.pattern-wire-novel .card-plot::after {
+  inset: 18% 16% 14% 50%;
+}
+
+.pattern-wire-novel .card-plot span:nth-child(1) {
+  left: 31%;
+  top: 36%;
+  width: 22%;
+  transform: rotate(0deg) translateX(-50%);
+}
+
+.pattern-wire-novel .card-plot span:nth-child(2) {
+  left: 31%;
+  top: 50%;
+  width: 22%;
+  transform: rotate(0deg) translateX(-50%);
+}
+
+.pattern-wire-novel .card-plot span:nth-child(3) {
+  left: 31%;
+  top: 64%;
+  width: 22%;
+  transform: rotate(0deg) translateX(-50%);
+}
+
+.pattern-wire-novel .card-plot span:nth-child(4),
+.pattern-wire-novel .card-plot span:nth-child(5) {
+  display: none;
+}
+
+.pattern-wire-sound .card-plot {
+  background:
+    repeating-radial-gradient(ellipse at 20% 50%, transparent 0 0.72rem, var(--ink) 0.75rem 0.78rem, transparent 0.82rem 1.2rem),
+    linear-gradient(90deg, transparent 0 18%, var(--ink) 18.3% 18.8%, transparent 19%);
+}
+
+.pattern-wire-sound .card-plot::before {
+  inset: 26% 68% 26% 14%;
+}
+
+.pattern-wire-sound .card-plot::after {
+  inset: 24% 16% 24% 54%;
+}
+
+.pattern-wire-sound .card-plot span:nth-child(1) {
+  left: 42%;
+  top: 44%;
+  width: 18%;
+  transform: rotate(-28deg) translateX(0);
+}
+
+.pattern-wire-sound .card-plot span:nth-child(2) {
+  left: 54%;
+  top: 54%;
+  width: 18%;
+  transform: rotate(28deg) translateX(0);
+}
+
+.pattern-wire-sound .card-plot span:nth-child(3) {
+  left: 66%;
+  top: 44%;
+  width: 18%;
+  transform: rotate(-28deg) translateX(0);
+}
+
+.pattern-wire-sound .card-plot span:nth-child(4),
+.pattern-wire-sound .card-plot span:nth-child(5) {
+  display: none;
+}
+
+.pattern-wire-platform .card-plot {
+  background:
+    linear-gradient(90deg, transparent 0 24%, var(--ink) 24.3% 24.8%, transparent 25% 48%, var(--ink) 48.3% 48.8%, transparent 49% 72%, var(--ink) 72.3% 72.8%, transparent 73%),
+    linear-gradient(0deg, transparent 0 30%, var(--ink) 30.3% 30.8%, transparent 31% 60%, var(--ink) 60.3% 60.8%, transparent 61%),
+    radial-gradient(circle at 35% 45%, var(--ink) 0 1.4px, transparent 1.6px),
+    radial-gradient(circle at 60% 45%, var(--ink) 0 1.4px, transparent 1.6px);
+}
+
+.pattern-wire-platform .card-plot::before {
+  inset: 18% 14% 18%;
+}
+
+.pattern-wire-platform .card-plot::after {
+  inset: 64% 20% 24%;
+}
+
+.pattern-wire-platform .card-plot span:nth-child(1) {
+  left: 24%;
+  top: 78%;
+  width: 54%;
+  transform: rotate(0deg) translateX(0);
+}
+
+.pattern-wire-platform .card-plot span:nth-child(2),
+.pattern-wire-platform .card-plot span:nth-child(3),
+.pattern-wire-platform .card-plot span:nth-child(4),
+.pattern-wire-platform .card-plot span:nth-child(5) {
+  display: none;
+}
+
+.pattern-wire-tokenizer .card-plot {
+  background:
+    radial-gradient(circle at 18% 24%, var(--ink) 0 1.2px, transparent 1.4px),
+    radial-gradient(circle at 36% 24%, var(--ink) 0 1.2px, transparent 1.4px),
+    radial-gradient(circle at 58% 24%, var(--ink) 0 1.2px, transparent 1.4px),
+    radial-gradient(circle at 80% 24%, var(--ink) 0 1.2px, transparent 1.4px);
+}
+
+.pattern-wire-tokenizer .card-plot::before {
+  inset: 16% 12% 58%;
+}
+
+.pattern-wire-tokenizer .card-plot::after {
+  inset: 54% 14% 18%;
+}
+
+.pattern-wire-tokenizer .card-plot span:nth-child(1) {
+  left: 18%;
+  top: 46%;
+  width: 16%;
+  transform: rotate(0deg) translateX(0);
+}
+
+.pattern-wire-tokenizer .card-plot span:nth-child(2) {
+  left: 38%;
+  top: 46%;
+  width: 18%;
+  transform: rotate(0deg) translateX(0);
+}
+
+.pattern-wire-tokenizer .card-plot span:nth-child(3) {
+  left: 60%;
+  top: 46%;
+  width: 22%;
+  transform: rotate(0deg) translateX(0);
+}
+
+.pattern-wire-tokenizer .card-plot span:nth-child(4) {
+  left: 24%;
+  top: 70%;
+  width: 50%;
+  transform: rotate(0deg) translateX(0);
+}
+
+.pattern-wire-tokenizer .card-plot span:nth-child(5) {
+  display: none;
+}
+
+.pattern-wire-human-mode .card-plot {
+  background:
+    radial-gradient(circle at 34% 28%, transparent 0 7%, var(--ink) 7.5% 8.4%, transparent 9%),
+    linear-gradient(90deg, transparent 0 33.5%, var(--ink) 33.8% 34.4%, transparent 34.7%),
+    radial-gradient(circle at 72% 46%, var(--ink) 0 2px, transparent 2.2px),
+    radial-gradient(circle at 72% 62%, transparent 0 7%, var(--ink) 7.4% 8.2%, transparent 8.8%);
+}
+
+.pattern-wire-human-mode .card-plot::before {
+  inset: 42% 56% 24% 20%;
+  border-radius: 44% 44% 6% 6%;
+}
+
+.pattern-wire-human-mode .card-plot::after {
+  inset: 34% 16% 42% 58%;
+  border-radius: 999px;
+}
+
+.pattern-wire-human-mode .card-plot span:nth-child(1) {
+  left: 34%;
+  top: 54%;
+  width: 24%;
+  transform: rotate(0deg) translateX(-50%);
+}
+
+.pattern-wire-human-mode .card-plot span:nth-child(2) {
+  left: 34%;
+  top: 70%;
+  width: 24%;
+  transform: rotate(54deg) translateX(-50%);
+}
+
+.pattern-wire-human-mode .card-plot span:nth-child(3) {
+  left: 34%;
+  top: 70%;
+  width: 24%;
+  transform: rotate(126deg) translateX(-50%);
+}
+
+.pattern-wire-human-mode .card-plot span:nth-child(4),
+.pattern-wire-human-mode .card-plot span:nth-child(5) {
+  display: none;
+}
+
+.pattern-wire-latent-levels .card-plot {
+  background:
+    linear-gradient(0deg, transparent 0 28%, var(--ink) 28.3% 28.8%, transparent 29% 46%, var(--ink) 46.3% 46.8%, transparent 47% 64%, var(--ink) 64.3% 64.8%, transparent 65%),
+    radial-gradient(circle at 24% 72%, var(--ink) 0 1.6px, transparent 1.8px),
+    radial-gradient(circle at 50% 38%, var(--ink) 0 1.6px, transparent 1.8px),
+    radial-gradient(circle at 78% 58%, var(--ink) 0 1.6px, transparent 1.8px);
+}
+
+.pattern-wire-latent-levels .card-plot::before {
+  inset: 18% 16% 18%;
+  transform: skewY(-8deg);
+}
+
+.pattern-wire-latent-levels .card-plot::after {
+  inset: 32% 28% 32%;
+  transform: skewY(-8deg);
+}
+
+.pattern-wire-latent-levels .card-plot span:nth-child(1) {
+  left: 24%;
+  top: 72%;
+  width: 35%;
+  transform: rotate(-45deg) translateX(0);
+}
+
+.pattern-wire-latent-levels .card-plot span:nth-child(2) {
+  left: 50%;
+  top: 38%;
+  width: 31%;
+  transform: rotate(34deg) translateX(0);
+}
+
+.pattern-wire-latent-levels .card-plot span:nth-child(3),
+.pattern-wire-latent-levels .card-plot span:nth-child(4),
+.pattern-wire-latent-levels .card-plot span:nth-child(5) {
+  display: none;
+}
+
+.pattern-wire-perspective .card-plot {
+  background:
+    radial-gradient(circle at 50% 50%, var(--ink) 0 2px, transparent 2.2px),
+    linear-gradient(90deg, transparent 0 20%, var(--ink) 20.3% 20.8%, transparent 21% 79%, var(--ink) 79.3% 79.8%, transparent 80%),
+    linear-gradient(0deg, transparent 0 22%, var(--ink) 22.3% 22.8%, transparent 23% 78%, var(--ink) 78.3% 78.8%, transparent 79%);
+}
+
+.pattern-wire-perspective .card-plot::before {
+  inset: 18% 16% 18%;
+}
+
+.pattern-wire-perspective .card-plot::after {
+  inset: 36% 38% 36%;
+}
+
+.pattern-wire-perspective .card-plot span:nth-child(1) {
+  left: 50%;
+  top: 50%;
+  width: 44%;
+  transform: rotate(28deg) translateX(0);
+}
+
+.pattern-wire-perspective .card-plot span:nth-child(2) {
+  left: 50%;
+  top: 50%;
+  width: 44%;
+  transform: rotate(152deg) translateX(0);
+}
+
+.pattern-wire-perspective .card-plot span:nth-child(3) {
+  left: 50%;
+  top: 50%;
+  width: 44%;
+  transform: rotate(-28deg) translateX(0);
+}
+
+.pattern-wire-perspective .card-plot span:nth-child(4) {
+  left: 50%;
+  top: 50%;
+  width: 44%;
+  transform: rotate(-152deg) translateX(0);
+}
+
+.pattern-wire-perspective .card-plot span:nth-child(5) {
+  display: none;
+}
+
+.card.is-featured::before {
+  background:
+    radial-gradient(circle, var(--ink) 0 0.13rem, transparent 0.14rem 100%),
+    var(--field);
+  background-size: 0.98rem 0.62rem;
+}
+
+.card.is-featured .card-plot {
+  opacity: 0.18;
+}
+
+.card.is-featured .card-plot::before,
+.card.is-featured .card-plot::after,
+.card.is-featured .card-plot span {
+  border-color: var(--ink);
+}
+
+.card.is-featured.pattern-wire-system .card-plot,
+.card.is-featured.pattern-wire-game .card-plot,
+.card.is-featured.pattern-wire-bracket .card-plot,
+.card.is-featured.pattern-wire-book .card-plot,
+.card.is-featured.pattern-wire-screen .card-plot,
+.card.is-featured.pattern-wire-palette .card-plot,
+.card.is-featured.pattern-wire-person .card-plot,
+.card.is-featured.pattern-wire-document .card-plot,
+.card.is-featured.pattern-wire-personnel .card-plot,
+.card.is-featured.pattern-wire-calendar-empty .card-plot,
+.card.is-featured.pattern-wire-judgment .card-plot,
+.card.is-featured.pattern-wire-synthetic .card-plot,
+.card.is-featured.pattern-wire-game-analysis .card-plot,
+.card.is-featured.pattern-wire-critical-theory .card-plot,
+.card.is-featured.pattern-wire-esports .card-plot,
+.card.is-featured.pattern-wire-game-studies .card-plot,
+.card.is-featured.pattern-wire-taste-ai .card-plot,
+.card.is-featured.pattern-wire-digital .card-plot {
+  opacity: 0.16;
+}
+
+.card.is-featured[class*="pattern-wire-"] .card-plot {
+  opacity: 0.16;
+}
+
+.card h2,
+.card h3 {
+  margin-top: 0.35rem;
+  overflow-wrap: anywhere;
+}
+
+.card p {
+  margin-top: 0.75rem;
+  color: var(--charcoal);
+  overflow-wrap: anywhere;
+}
+
+.card .card-meta-line {
+  margin-top: 0.48rem;
+  color: var(--graphite);
+  font-family: var(--mono-font);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.constellation-card:nth-child(3n + 1) .card-kicker,
+.artifact-card:nth-child(3n + 1) .card-kicker {
+  color: var(--ink);
+}
+
+.constellation-card:nth-child(3n + 2) .card-kicker,
+.artifact-card:nth-child(3n + 2) .card-kicker {
+  color: var(--graphite);
+}
+
+.constellation-card:nth-child(3n + 3) .card-kicker,
+.artifact-card:nth-child(3n + 3) .card-kicker {
+  color: var(--blue-gray);
+}
+
+.badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.75rem;
+}
+
+.term-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.card h2 + .term-row {
+  margin-top: 0.75rem;
+}
+
+.record-list .term-row {
+  display: inline-flex;
+  margin: 0.35rem 0 0;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.48rem;
+  padding: 0.05rem 0.42rem;
+  border: 1px solid var(--line-dark);
+  border-radius: 0;
+  background: var(--field);
+  color: var(--charcoal);
+  font-family: var(--mono-font);
+  font-size: 0.66rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.status-current,
+.status-published {
+  background: var(--ink);
+  color: var(--field);
+  text-shadow: none;
+}
+
+.status-developing,
+.status-forthcoming,
+.status-long-horizon {
+  color: var(--blue-gray);
+}
+
+.status-archival,
+.status-dormant,
+.status-draft,
+.status-closed,
+.status-open {
+  color: var(--graphite);
+}
+
+.term-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.48rem;
+  padding: 0.05rem 0.42rem;
+  border: 1px solid var(--line-dark);
+  background: var(--field);
+  color: var(--ink);
+  font-family: var(--mono-font);
+  font-size: 0.66rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.small-list {
+  font-size: 0.92rem;
+}
+
+.route-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13.5rem), 1fr));
+}
+
+.route-grid .card h2 {
+  font-size: 1.15rem;
+}
+
+.record-list {
+  display: grid;
+  gap: 0;
+  list-style: none;
+  border-top: 1px solid var(--line-dark);
+}
+
+.record-list li {
+  padding-block: 0.9rem;
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.record-list li > span {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.record-list p {
+  margin-top: 0.35rem;
+  max-width: 760px;
+  color: var(--charcoal);
+}
+
+.prose {
+  max-width: var(--narrow);
+}
+
+.prose > * + * {
+  margin-top: 1rem;
+}
+
+.prose h2,
+.prose h3 {
+  margin-top: 2rem;
+}
+
+.prose ul {
+  padding-left: 1.25rem;
+}
+
+.metadata-list {
+  display: grid;
+  gap: 0.75rem;
+  padding: 1rem;
+  border: 1px solid var(--line-dark);
+  background: var(--field);
+  box-shadow: 0.4rem 0.4rem 0 rgba(17, 17, 15, 0.13);
+  list-style: none;
+  color: var(--charcoal);
+}
+
+.metadata-list strong {
+  color: var(--ink);
+  text-transform: uppercase;
+}
+
+.route-register {
+  margin-top: 1rem;
+  border: 1px solid var(--line-dark);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.54), transparent),
+    linear-gradient(90deg, rgba(17, 17, 15, 0.06) 0 0.8rem, transparent 0.8rem),
+    repeating-linear-gradient(0deg, rgba(17, 17, 15, 0.05) 0 1px, transparent 1px 2.6rem),
+    var(--field);
+  box-shadow: 0.4rem 0.4rem 0 rgba(17, 17, 15, 0.13);
+}
+
+.route-register-head {
+  display: grid;
+  gap: 0.55rem;
+  padding: 0.85rem 1rem 0.65rem;
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.route-register-head .section-label {
+  margin: 0;
+  width: fit-content;
+}
+
+.route-register code {
+  background: transparent;
+  padding: 0;
+  color: var(--graphite);
+  font-size: 0.72rem;
+  word-break: break-word;
+}
+
+.route-register-meta {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.55rem;
+  padding: 0.8rem 1rem 0;
+  list-style: none;
+}
+
+.route-register-meta li {
+  padding: 0.55rem 0.6rem;
+  border: 1px solid color-mix(in srgb, var(--line-dark) 80%, transparent);
+  background: rgba(255, 255, 255, 0.38);
+}
+
+.route-register-meta span,
+.route-list-head span,
+.route-list a span,
+.route-list small,
+.route-empty {
+  color: var(--graphite);
+  font-family: var(--mono-font);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.route-register-meta strong {
+  display: block;
+  margin-top: 0.26rem;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.route-list {
+  display: grid;
+  list-style: none;
+}
+
+.route-list li {
+  display: grid;
+  gap: 0.38rem;
+  padding: 0.78rem 1rem;
+  border-left: 1px solid color-mix(in srgb, var(--line-dark) 72%, transparent);
+  background:
+    linear-gradient(90deg, rgba(17, 17, 15, 0.028), transparent 24%),
+    transparent;
+}
+
+.route-list li + li {
+  border-top: 1px solid var(--line-dark);
+}
+
+.route-list-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+.route-direction {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.16rem 0.3rem;
+  border: 1px solid color-mix(in srgb, var(--line-dark) 74%, transparent);
+  background: rgba(255, 255, 255, 0.38);
+}
+
+.route-direction-outgoing::before,
+.route-direction-incoming::before {
+  margin-right: 0.26rem;
+}
+
+.route-direction-outgoing::before {
+  content: ">";
+}
+
+.route-direction-incoming::before {
+  content: "<";
+}
+
+.route-list a {
+  display: grid;
+  gap: 0.2rem;
+  text-decoration: none;
+}
+
+.route-list a strong {
+  color: var(--ink);
+  font-size: 0.94rem;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.route-list small {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.route-list small span {
+  display: inline-flex;
+  padding: 0.18rem 0.34rem;
+  border: 1px solid color-mix(in srgb, var(--line-dark) 74%, transparent);
+  background: rgba(255, 255, 255, 0.34);
+}
+
+.route-list small code {
+  padding: 0;
+  background: transparent;
+  font-size: inherit;
+  word-break: break-word;
+}
+
+.route-list .status-badge {
+  width: fit-content;
+  margin-top: 0.1rem;
+}
+
+.route-empty {
+  padding: 0.85rem 1rem;
+}
+
+.callout {
+  border: 1px solid var(--line-dark);
+  padding: 1rem;
+  background: var(--paper-warm);
+  box-shadow: 0.4rem 0.4rem 0 rgba(17, 17, 15, 0.13);
+}
+
+.callout h3 {
+  margin-bottom: 0.65rem;
+}
+
+@media (max-width: 860px) {
+  .page-head-grid,
+  .header-shell,
+  .grid-two,
+  .home-ledger,
+  .home-atlas,
+  .home-ledger-grid,
+  .home-board,
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .header-shell {
+    align-items: stretch;
+  }
+
+  .primary-nav {
+    width: 100%;
+  }
+
+  .primary-nav a {
+    flex: 1 1 auto;
+  }
+
+  h1 {
+    max-width: 100%;
+  }
+
+  .expanded-card {
+    padding-left: 2.35rem;
+  }
+
+  .route-register-meta {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  body {
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,32 @@
+---
+import Card from "./Card.astro";
+import { slugFor } from "../lib/content";
+import { patternFor } from "../lib/visual";
+
+const { entry, patternSeed } = Astro.props;
+const slug = slugFor(entry);
+const publicUrl = entry.data.publicUrl;
+const cardHref = publicUrl;
+const displayLabel =
+  entry.data.status === "open"
+    ? "In Progress"
+    : entry.data.date
+      ? String(new Date(entry.data.date).getUTCFullYear())
+      : entry.data.status;
+---
+
+<Card
+  href={cardHref}
+  pattern={patternFor(patternSeed ?? slug)}
+  class={`artifact-card ${entry.data.featured ? "is-featured" : ""}`}
+>
+  <h2>{entry.data.title}</h2>
+  {
+    displayLabel && (
+      <span class="badge-row" aria-label="Status">
+        <span class="term-badge">{displayLabel}</span>
+      </span>
+    )
+  }
+  {entry.data.summary && <p>{entry.data.summary}</p>}
+</Card>

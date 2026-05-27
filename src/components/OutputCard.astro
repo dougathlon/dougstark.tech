@@ -1,0 +1,33 @@
+---
+import Card from "./Card.astro";
+import StatusBadge from "./StatusBadge.astro";
+import { slugFor } from "../lib/content";
+import { patternFor } from "../lib/visual";
+
+const { entry, patternSeed } = Astro.props;
+const slug = slugFor(entry);
+const publicUrl = entry.data.publicUrl;
+const abstract = entry.data.abstract ?? entry.data.cardSummary ?? entry.data.summary;
+const closedYear =
+  entry.data.status === "closed" && entry.data.date ? new Date(entry.data.date).getUTCFullYear() : undefined;
+const publicationType = entry.data.type ?? entry.data.kind;
+---
+
+<Card
+  href={publicUrl}
+  pattern={patternFor(patternSeed ?? `output-${slug}`)}
+  class={`output-card ${entry.data.featured ? "is-featured" : ""}`}
+>
+  <h2>{entry.data.title}</h2>
+  {
+    closedYear ? (
+      <span class="badge-row" aria-label="Publication year and type">
+        <span class="term-badge">{closedYear}</span>
+        {publicationType && <span class="term-badge">{publicationType}</span>}
+      </span>
+    ) : (
+      <StatusBadge status={entry.data.status} visibility={entry.data.visibility} />
+    )
+  }
+  {abstract && <p>{abstract}</p>}
+</Card>
